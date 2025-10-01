@@ -1,0 +1,12 @@
+/* Sadece bu 2 import kalacak */
+@import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css";
+
+/* Kendi custom stillerin */
+:root {
+  --brand: #42b883;
+  --brand-ink: #1f2937;
+}
+html, body, #app { height: 100%; margin: 0; }
+body { color: var(--brand-ink); background: #f7f8fa; font-family: system-ui, sans-serif; }
+a { color: var(--brand); text-decoration: none; }
