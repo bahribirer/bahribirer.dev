@@ -24,7 +24,7 @@
       </div>
 
       <p class="exp-summary">
-        Kurumsal yazılım geliştirme süreçlerinde görev aldım. Angular ve Java kullanarak modül geliştirmelerine
+        Kurumsal yazılım geliştirme süreçlerinde görev aldım. TypeScript kullanarak modül geliştirmelerine
         katkı verdim; ekip iş akışlarına uyum sağlayarak kurumsal kod standartlarını benimsedim. Bitirme projem
         <strong>ServR</strong> kapsamında gerçek zamanlı sistemler ve test otomasyon ortamları üzerinde çalıştım.
       </p>
