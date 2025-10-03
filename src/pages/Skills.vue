@@ -154,7 +154,6 @@ const skillCategories: Category[] = [
     description: 'Modern frontend teknolojileriyle kullanıcı dostu arayüzler geliştiriyorum.',
     skills: [
       { name: 'HTML / CSS', level: 4 },
-      { name: 'JavaScript / TypeScript', level: 4 },
       { name: 'Vue.js', level: 4 },
       { name: 'Angular', level: 2 },
       { name: 'Flutter', level: 4 }
@@ -201,7 +200,9 @@ const skillCategories: Category[] = [
       { name: 'C / C++', level: 3 },
       { name: 'Java', level: 3 },
       { name: 'Python', level: 3 },
-      { name: 'Dart', level: 4 }
+      { name: 'Dart', level: 4 },
+            { name: 'JavaScript / TypeScript', level: 4 },
+
     ]
   }
 ]
