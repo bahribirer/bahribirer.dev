@@ -98,6 +98,78 @@
       </div>
     </section>
 
+    <!-- Web Projects -->
+<section class="sheet websites">
+  <header class="sheet-head">
+    <div class="sheet-title">
+      <i class="pi pi-globe"></i>
+      <h2>Vue Web Siteleri — Modern Kurumsal Arayüzler</h2>
+    </div>
+    <div class="sheet-tags">
+      <Tag rounded severity="success" value="Vue" />
+      <Tag rounded severity="info" value="TypeScript" />
+      <Tag rounded severity="warning" value="Vite" />
+      <Tag rounded value="Responsive Design" />
+      <Tag rounded value="SEO" />
+    </div>
+  </header>
+
+  <div class="rows">
+    <article class="card">
+      <h3>Özet</h3>
+      <p>
+        Kurumsal müşteriler için <strong>tamamen Vue 3 ve Vite</strong> tabanlı modern web siteleri geliştiriyorum.
+        Bu projelerde <em>yüksek performanslı, SEO uyumlu ve mobil öncelikli</em> yapılar hedefleniyor.
+        Örnek: <a href="https://rmsyapigrubu.com" target="_blank">rmsyapigrubu.com</a>
+      </p>
+    </article>
+
+    <article class="card">
+      <h3>Genel Özellikler</h3>
+      <ul class="bullets">
+        <li>Vue 3 Composition API ve TypeScript ile modüler bileşen mimarisi.</li>
+        <li>Vite ile <em>hızlı derleme ve geliştirme ortamı</em>.</li>
+        <li>PrimeVue ve Tailwind CSS kullanılarak estetik ve uyumlu arayüzler.</li>
+        <li>SEO optimizasyonu ve meta etiket yönetimi.</li>
+        <li>Form işlemleri ve veri gönderimi için Axios entegresi.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3>Rolüm & Katkılar</h3>
+      <ul class="bullets">
+        <li>Site mimarisi, bileşen tasarımı ve frontend altyapısının tamamı.</li>
+        <li>Responsive arayüz ve mobil uyumlu tasarım optimizasyonları.</li>
+        <li>Form validasyonları, meta yönetimi ve SEO iyileştirmeleri.</li>
+        <li>Hosting ve domain yönetimi süreçlerinin takibi ve kurulumu.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3>Teknik Yığın</h3>
+      <div class="chips">
+        <Tag rounded value="Vue 3" />
+        <Tag rounded value="Vite" />
+        <Tag rounded value="TypeScript" />
+        <Tag rounded value="PrimeVue" />
+        <Tag rounded value="Tailwind CSS" />
+        <Tag rounded value="Axios" />
+        <Tag rounded value="Netlify / cPanel" />
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Sonuç & Öğrenimler</h3>
+      <ul class="bullets">
+        <li>Kurumsal markalar için hızlı ve hafif Vue altyapısı standartlaştırıldı.</li>
+        <li>SEO ve performans ölçümlerinde yüksek puanlar elde edildi.</li>
+        <li>Birden fazla müşteri sitesi için ortak bileşen kitaplığı oluşturuldu.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+
     <!-- Tiki Taka Toe -->
     <section class="sheet tiki">
       <header class="sheet-head">
@@ -185,6 +257,9 @@ import Tag from 'primevue/tag'
 </script>
 
 <style scoped>
+
+.sheet.websites { --tint: #0ea5e9; } /* Vue Web Siteleri için mavi ton */
+
 /* ---- Canvas (katmanlı renk + doku) ---- */
 .projects-neo{
   max-width: 1100px; margin: 0 auto; padding: 1.25rem; display:grid; gap:1.25rem;
