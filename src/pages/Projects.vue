@@ -121,6 +121,7 @@
         Kurumsal müşteriler için <strong>tamamen Vue 3 ve Vite</strong> tabanlı modern web siteleri geliştiriyorum.
         Bu projelerde <em>yüksek performanslı, SEO uyumlu ve mobil öncelikli</em> yapılar hedefleniyor.
         Örnek: <a href="https://rmsyapigrubu.com" target="_blank">rmsyapigrubu.com</a>
+        <br><a href="https://peralegal.com.tr" target="_blank">peralegal.com.tr</a></br>
       </p>
     </article>
 
