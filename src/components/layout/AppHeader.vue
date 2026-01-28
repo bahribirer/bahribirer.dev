@@ -8,7 +8,23 @@
     <!-- ✅ router ekledik -->
     <Menubar class="hidden md:flex" :model="items" :router="true" />
 
-    <div class="flex align-items-center gap-2">
+    <div class="flex align-items-center gap-3">
+      <div class="flex gap-2 mr-2">
+        <Button 
+          :text="locale !== 'tr'" 
+          :severity="locale === 'tr' ? 'primary' : 'secondary'"
+          label="TR" 
+          size="small" 
+          @click="setLocale('tr')" 
+        />
+        <Button 
+          :text="locale !== 'en'" 
+          :severity="locale === 'en' ? 'primary' : 'secondary'"
+          label="EN" 
+          size="small" 
+          @click="setLocale('en')" 
+        />
+      </div>
       <a href="https://github.com/bahribirer" target="_blank" aria-label="GitHub"><i class="pi pi-github"></i></a>
       <a href="https://www.linkedin.com/in/bahri-birer-02256a267/" target="_blank" aria-label="LinkedIn"><i class="pi pi-linkedin"></i></a>
     </div>
@@ -20,16 +36,24 @@ import Menubar from 'primevue/menubar'
 import Button from 'primevue/button'
 import { useRouter } from 'vue-router'
 
-const router = useRouter()
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const items = [
-  { label: 'Ana Sayfa', command: () => router.push({ name: 'home' }) },
-  { label: 'Hakkımda', command: () => router.push({ name: 'about' }) },
-  { label: 'Yetenekler', command: () => router.push({ name: 'skills' }) },
-  { label: 'Deneyim', command: () => router.push({ name: 'experience' }) },
-  { label: 'Projeler', command: () => router.push({ name: 'projects' }) },
-  { label: 'Sertifikalar', command: () => router.push({ name: 'certificates' }) },
-  { label: 'İletişim', command: () => router.push({ name: 'contact' }) },
-]
+const router = useRouter()
+const { t, locale } = useI18n()
+
+const setLocale = (l: string) => {
+  locale.value = l
+}
+
+const items = computed(() => [
+  { label: t('nav.home'), command: () => router.push({ name: 'home' }) },
+  { label: t('nav.about'), command: () => router.push({ name: 'about' }) },
+  { label: t('nav.skills'), command: () => router.push({ name: 'skills' }) },
+  { label: t('nav.experience'), command: () => router.push({ name: 'experience' }) },
+  { label: t('nav.projects'), command: () => router.push({ name: 'projects' }) },
+  { label: t('nav.certificates'), command: () => router.push({ name: 'certificates' }) },
+  { label: t('nav.contact'), command: () => router.push({ name: 'contact' }) },
+])
 </script>
 

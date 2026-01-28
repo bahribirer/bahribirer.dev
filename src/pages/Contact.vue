@@ -6,9 +6,9 @@
     <header class="hero">
       <div class="hero-title">
         <i class="pi pi-send"></i>
-        <h1>İletişim</h1>
+        <h1>{{ t('contact.title') }}</h1>
       </div>
-      <p class="hero-sub">Projeler, iş teklifleri veya tanışmak için buradan ulaşabilirsin.</p>
+      <p class="hero-sub">{{ t('contact.subtitle') }}</p>
       <span class="hero-blob"></span>
     </header>
 
@@ -19,12 +19,12 @@
         <div class="ic-head">
           <div class="ic-icon"><i class="pi pi-envelope"></i></div>
           <div class="ic-titles">
-            <h3>E-posta</h3>
+            <h3>{{ t('contact.email') }}</h3>
             <p class="ic-text">{{ TO_EMAIL }}</p>
           </div>
         </div>
         <div class="ic-actions">
-          <Button size="small" icon="pi pi-copy" label="Kopyala" text @click="copy(TO_EMAIL, 'E-posta kopyalandı')" />
+          <Button size="small" icon="pi pi-copy" :label="t('contact.copy')" text @click="copy(TO_EMAIL, t('contact.copied_mail'))" />
         </div>
       </article>
 
@@ -33,12 +33,12 @@
         <div class="ic-head">
           <div class="ic-icon"><i class="pi pi-phone"></i></div>
           <div class="ic-titles">
-            <h3>Telefon</h3>
+            <h3>{{ t('contact.phone') }}</h3>
             <p class="ic-text">{{ PHONE_DISPLAY }}</p>
           </div>
         </div>
         <div class="ic-actions">
-          <Button size="small" icon="pi pi-copy" label="Kopyala" text @click="copy(PHONE_DISPLAY, 'Telefon kopyalandı')" />
+          <Button size="small" icon="pi pi-copy" :label="t('contact.copy')" text @click="copy(PHONE_DISPLAY, t('contact.copied_phone'))" />
         </div>
       </article>
 
@@ -47,13 +47,13 @@
         <div class="ic-head">
           <div class="ic-icon"><i class="pi pi-map-marker"></i></div>
           <div class="ic-titles">
-            <h3>Konum</h3>
-            <p class="ic-text">Ankara, Türkiye</p>
+            <h3>{{ t('contact.location') }}</h3>
+            <p class="ic-text">{{ t('contact.location_val') }}</p>
           </div>
         </div>
         <div class="ic-actions">
           <a :href="MAP_URL" target="_blank" rel="noopener">
-            <Button size="small" icon="pi pi-map" label="Haritayı Aç" />
+            <Button size="small" icon="pi pi-map" :label="t('contact.open_map')" />
           </a>
         </div>
       </article>
@@ -63,7 +63,7 @@
         <div class="ic-head">
           <div class="ic-icon"><i class="pi pi-users"></i></div>
           <div class="ic-titles">
-            <h3>Sosyal</h3>
+            <h3>{{ t('contact.social') }}</h3>
             <div class="socials">
               <a :href="LINKEDIN" target="_blank" rel="noopener" class="soc">
                 <i class="pi pi-linkedin"></i> LinkedIn
@@ -83,6 +83,9 @@
 import Toast from 'primevue/toast'
 import { useToast } from 'primevue/usetoast'
 import Button from 'primevue/button'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 /** --- Temel iletişim bilgileri --- */
 const TO_EMAIL = 'bahribirerr@gmail.com'

@@ -1,0 +1,258 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımda",
+    "skills": "Yetenekler",
+    "experience": "Deneyim",
+    "projects": "Projeler",
+    "certificates": "Sertifikalar",
+    "contact": "İletişim"
+  },
+  "home": {
+    "status": "Projelere Açık",
+    "title": "Yazılım Mühendisi",
+    "desc": "Performans odaklı, ölçeklenebilir ve kullanıcı deneyimini ön planda tutan modern web uygulamaları geliştiriyorum. Özellikle Vue.js, Python ve gerçek zamanlı sistem mimarileri üzerinde uzmanlaşmış bulunmaktayım.",
+    "cta": "Projelerimi Gör"
+  },
+  "projects": {
+    "title": "Projeler",
+    "serveR": {
+      "title": "ServeR — Frontend için Backend’siz Test Ortamı",
+      "summary": "Özet",
+      "summary_desc": "ServeR; **frontend ekiplerinin** gerçek backend hazır olmasa bile geliştirme ve **test otomasyonunu** sürdürebilmesi için tasarladığım bir *mock/virtual backend* çözümüdür.",
+      "problem": "Problem & Amaç",
+      "problem_desc": "Dağıtık takımlarda UI geliştirme, API sözleşmeleri tamamlanana kadar yavaşlar. ServeR; **sözleşme odaklı** yaklaşımı destekleyerek *beklemeyi en aza indirme* hedefiyle geliştirildi.",
+      "design": "Çözüm Tasarımı",
+      "design_features": [
+        "Senaryo tabanlı yanıt üretimi (başarılı, boş veri, hata, gecikme vb.).",
+        "REST ve GraphQL için **şema/sözleşmeden** mock üretimi.",
+        "Gerçek zamanlı **event akışlarını** canlandırma (WebSocket / Socket.IO).",
+        "Profil/ortam izolasyonu (takım veya branch bazlı çalışma).",
+        "CLI & hafif yönetim katmanı ile hızlı geçiş ve sıfırlama.",
+        "Docker imajı ve **CI/CD** hattıyla taşınabilir kurulum."
+      ],
+      "role": "Rolüm & Sorumluluklar",
+      "role_features": [
+        "Temel **senaryo motorunun** tasarımı ve geliştirilmesi.",
+        "REST/GraphQL **adaptörlerinin** yazılması ve sözleşme içeri aktarımı.",
+        "Socket.IO tabanlı gerçek zamanlı olay yayın/abonelik altyapısı.",
+        "Test otomasyonuna uygun **fixture/seed** akışının kurgulanması.",
+        "Kurulum, kullanım ve entegrasyon **dokümantasyonu**."
+      ],
+      "results": "Sonuç & Öğrenimler",
+      "results_features": [
+        "UI geliştirme süreci, gerçek backend’den **daha az bağımlı** hâle geldi.",
+        "Edge-case senaryolar ve bağlantı sorunları **erken görünür** oldu.",
+        "Gerçek zamanlı sistemler, test kültürü ve **kurumsal kod standartları** konusunda pratik kazanımı."
+      ],
+      "tech": "Teknik Yığın"
+    },
+    "web": {
+      "title": "Vue Web Siteleri — Modern Kurumsal Arayüzler",
+      "summary": "Özet",
+      "summary_desc": "Kurumsal müşteriler için **tamamen Vue 3 ve Vite** tabanlı modern web siteleri geliştiriyorum. Bu projelerde *yüksek performanslı, SEO uyumlu ve mobil öncelikli* yapılar hedefleniyor.",
+      "desc": "Özellikle son projelerimde <strong>SEO stratejileri, Google Analytics 4 (GA4) ve Search Console</strong> entegrasyonlarını uçtan uca yöneterek dijital görünürlüğü artırıyorum.<br />Örnekler: <a href=\"https://trnyapı.com\" target=\"_blank\">trnyapı.com</a>, <a href=\"https://rmsyapigrubu.com\" target=\"_blank\">rmsyapigrubu.com</a>, <a href=\"https://peralegal.com.tr\" target=\"_blank\">peralegal.com.tr</a>",
+      "features": "Genel Özellikler",
+      "features_list": [
+        "Vue 3 Composition API ve TypeScript ile modüler bileşen mimarisi.",
+        "Vite ile *hızlı derleme ve geliştirme ortamı*.",
+        "PrimeVue ve Tailwind CSS kullanılarak estetik ve uyumlu arayüzler.",
+        "SEO optimizasyonu ve meta etiket yönetimi.",
+        "Form işlemleri ve veri gönderimi için Axios entegresi."
+      ],
+      "featured": "Öne Çıkan Projeler",
+      "strategic": "Stratejik Katkılar",
+      "seo": "SEO & Analytics",
+      "performance": "Performans",
+      "responsive": "Responsive",
+      "tech": "Teknik Yığın",
+      "results": "Sonuç & Öğrenimler",
+      "results_list": [
+        "Kurumsal markalar için hızlı ve hafif Vue altyapısı standartlaştırıldı.",
+        "**Google Analytics ve Search Console** ile veri odaklı SEO takibi sağlandı.",
+        "Performans ölçümlerinde (Lighthouse) yüksek skorlar elde edildi."
+      ]
+    },
+    "larosee": {
+      "title": "La Rosee Sales — Akıllı Satış ve Stok Yönetimi",
+      "mobile_title": "Saha Satış & Rekabet (Mobil)",
+      "mobile_desc": "Flutter ile geliştirilen mobil uygulama, sahadaki personelin tüm operasyonunu yönetir:",
+      "mobile_features": {
+        "ocr": "Akıllı Raporlama: Google OCR veya Excel üzerinden anlık rapor yükleme.",
+        "scoreboard": "Canlı Scoreboard: Satış verilerine göre personel arası anlık sıralama.",
+        "aws": "AWS & Twilio: EC2 üzerinde güvenli backend ve SMS OTP doğrulaması.",
+        "offline": "Offline Senkronizasyon: İnternetsiz veri girişi ve Firebase eşitleme."
+      },
+      "admin_title": "Stratejik Yönetim (Admin Paneli)",
+      "admin_desc": "Yöneticiler için Vue 3 & PrimeVue ile geliştirilmiş merkezi kontrol üssü:",
+      "admin_features": {
+        "finance": "Finansal Analiz: Kar/Zarar tabloları ve ciro takibi.",
+        "stock": "Entegre Stok Sistemi: Şubeler arası envanter ve barkod takibi.",
+        "rep": "Mümessil Yönetimi: KPI metrikleri ve rota analizi.",
+        "comm": "İletişim Hub: Sahaya anlık push bildirimleri gönderimi."
+      },
+      "tech": "Teknik Altyapı"
+    },
+    "tiki": {
+      "title": "Tiki Taka Toe — Futbol Bilgisiyle 3x3 Strateji",
+      "summary": "Özet",
+      "summary_desc": "**Tiki Taka Toe**, futbol bilgisini ve stratejiyi birleştiren çok oyunculu bir mobil oyundur. 4x4’lük tahtanın kenarlarında *milli takımlar* ve *kulüpler* listelenir; merkezdeki 3x3 kesişim alanlarına her iki kriteri de sağlayan futbolcular yazılır.",
+      "mechanics": "Oynanış Mekaniği",
+      "mechanics_list": [
+        "Tahtanın kenarları: üst/soldaki başlıklarda milli takım ve kulüp isimleri.",
+        "Merkez 3x3 hücre: ilgili satır ve sütundaki iki koşulu da sağlayan bir futbolcu girilir.",
+        "Hamle doğrulanınca hücre, hamleyi yapan oyuncunun **X** veya **O** işaretiyle kilitlenir.",
+        "Kazanım: dikey/yatay/çapraz üçlü oluşturmak; beraberlikte bilgi doğruluğu önceliklidir."
+      ],
+      "architecture": "Mimari & Altyapı",
+      "architecture_list": [
+        "**Flutter (Dart)** istemci: tahta durumu, sıra yönetimi ve doğrulama geri bildirimleri.",
+        "**Python tabanlı backend**: futbolcu–kulüp–milli takım eşleştirme doğrulama motoru.",
+        "**WebSocket** lobi: oda açma/katılma, gerçek zamanlı eşleşme ve sıra güncellemeleri.",
+        "Oyun kuralları sunucu tarafında saklanır; geçersiz hamleler anında reddedilir."
+      ],
+      "role": "Rolüm & Katkılar",
+      "role_list": [
+        "Flutter arayüzü ve oyun döngüsünün (turn, geçerlilik, bitiş) kurgulanması.",
+        "Python doğrulama servisi ve WebSocket tabanlı **lobi/oda** mimarisinin geliştirilmesi.",
+        "Gerçek zamanlı senkronizasyon ve yarışma akışında hata/kenar durumlarının yönetimi."
+      ],
+      "tech": "Teknik Yığın",
+      "learnings": "Öğrenimler",
+      "learnings_list": [
+        "Gerçek zamanlı oda yapıları ve sıra yönetiminde **tutarlılık** ve **gecikme toleransı**.",
+        "Bilgi doğrulama kuralları için **esnek şema** ve ağ gecikmelerine karşı kullanıcı deneyimi.",
+        "Mobil-sunucu iletişiminde hata senaryolarını sadeleştirerek oyun akışını koruma."
+      ]
+    }
+  },
+  "skills": {
+    "title": "Yetenek Haritam",
+    "status": "Güncel Profil",
+    "subtitle": "Kategorilere göre gruplandı; ortalamalar donut chart, beceriler akışkan barlarla.",
+    "total_skills": "Toplam {n} beceri",
+    "avg_pct": "Ortalama %{n}",
+    "strongest": "Güçlü: {name}",
+    "search": "Beceri ara… (örn. Vue, Docker)",
+    "reset": "Sıfırla",
+    "average": "Ortalama",
+    "empty": "Sonuç bulunamadı.",
+    "sort": {
+      "lvl_desc": "Seviye (yüksek → düşük)",
+      "lvl_asc": "Seviye (düşük → yüksek)",
+      "az": "İsim (A → Z)",
+      "za": "İsim (Z → A)",
+      "cat_name": "Kategori adına göre",
+      "cat_avg": "Kategori ortalamasına göre"
+    },
+    "cats": {
+      "frontend": "Frontend",
+      "frontend_desc": "Modern frontend teknolojileriyle kullanıcı dostu arayüzler geliştiriyorum.",
+      "backend": "Backend",
+      "backend_desc": "Güçlü backend sistemleri ve API’ler tasarlayıp geliştiriyorum.",
+      "database": "Veritabanı",
+      "database_desc": "İlişkisel ve NoSQL veritabanlarıyla çalışıyorum.",
+      "devops": "DevOps & Tools",
+      "devops_desc": "Konteynerleştirme, CI/CD ve versiyon kontrol sistemleri.",
+      "seo": "SEO & Dijital Strateji",
+      "seo_desc": "Web sitelerinin görünürlüğünü artırmak için teknik SEO ve analiz.",
+      "langs": "Programlama Dilleri",
+      "langs_desc": "Sistem ve yüksek seviye dillerle geliştirme."
+    }
+  },
+  "about": {
+    "title": "Eğitim",
+    "subtitle": "Akademik geçmişim ve temel yetkinliklerimin kaynağı.",
+    "uni": {
+      "title": "Yazılım Mühendisliği (Lisans) — Mezun",
+      "subtitle": "Atılım Üniversitesi • 2020 – 2025",
+      "desc": "Atılım Üniversitesi Yazılım Mühendisliği bölümünden 2025 yılında mezun oldum (GNO 3.13, %100 İngilizce). Lisans boyunca algoritmalar, yazılım mimarisi, web teknolojileri ve gerçek zamanlı sistemler üzerinde yoğunlaştım. Takım projelerinde Agile/Scrum süreçleri, Git akışları ve code review kültürüyle üretim kalitesine odaklandım."
+    },
+    "hs": {
+      "title": "Samsun Anadolu Lisesi",
+      "subtitle": "Lise • 2016 – 2020",
+      "desc": "Matematik ve temel bilimler odaklı güçlü bir altyapı edindim. Disiplinli çalışma, analitik düşünme ve problem çözme alışkanlıklarımın temelini bu dönemde oluşturdum."
+    }
+  },
+  "footer": {
+    "rights": "Tüm hakları saklıdır."
+  },
+  "certificates": {
+    "title": "Sertifikalar",
+    "subtitle": "Topluluk katkıları ve teknik gelişimimi belgeleyen çalışmalar.",
+    "sort": {
+      "year_desc": "Yıla göre (yeni → eski)",
+      "year_asc": "Yıla göre (eski → yeni)",
+      "title_az": "Başlık (A → Z)",
+      "issuer_az": "Sağlayıcı (A → Z)",
+      "reset": "Sıfırla"
+    },
+    "preview": "Önizle",
+    "download": "İndir",
+    "empty": "Sonuç bulunamadı.",
+    "gdsc_core_2023": {
+      "title": "Google Developer Student Clubs — Core Member",
+      "issuer": "Google Developer Student Clubs (Atılım)",
+      "date": "30 Haziran 2023",
+      "desc": "GDSC Atılım kurucu çekirdek ekip üyesi olarak topluluk kurulum ve büyütme faaliyetlerinde aktif rol.",
+      "long": "GDSC Atılım’da kurucu çekirdek ekipte; kulüp yapılanmasının oluşturulması, etkinlik/atölye planlama, konuşmacı ilişkileri ve tanıtım çalışmalarında sorumluluk aldım. Kampüste geliştirici topluluğunun büyümesine katkı sağladım.",
+      "badges": {
+        "founder": "Kurucu Üye",
+        "core": "Core Team",
+        "community": "Topluluk"
+      },
+      "ref": "2022–2023 Akademik Yılı"
+    }
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Projeler, iş teklifleri veya tanışmak için buradan ulaşabilirsin.",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "location": "Konum",
+    "location_val": "Ankara, Türkiye",
+    "social": "Sosyal",
+    "copy": "Kopyala",
+    "open_map": "Haritayı Aç",
+    "copied_mail": "E-posta kopyalandı",
+    "copied_phone": "Telefon kopyalandı"
+  },
+  "experience": {
+    "title": "Deneyimler",
+    "subtitle": "Profesyonel iş deneyimlerim boyunca edindiğim tecrübeler:",
+    "responsibilities": "Sorumluluklar",
+    "highlights": "Öne Çıkanlar",
+    "learnings": "Öğrendiklerim",
+    "tech_stack": "Kullanılan Teknolojiler:",
+    "role": {
+      "long_term": "Uzun Dönem Stajyer / Ortak Eğitim Programı",
+      "intern": "Stajyer"
+    },
+    "havelsan": {
+      "summary": "Kurumsal yazılım geliştirme süreçlerinde görev aldım. TypeScript kullanarak modül geliştirmelerine katkı verdim; ekip iş akışlarına uyum sağlayarak kurumsal kod standartlarını benimsedim. Bitirme projem **ServeR** kapsamında gerçek zamanlı sistemler ve test otomasyon ortamları üzerinde çalıştım.",
+      "res_list": [
+        "TypeScript ve YAML yapısı beraber ön yüz tarafında ise Vue.js ile kurumsal modüllerde ekran ve komponent geliştirme, state ve form yönetimi.",
+        "TypeScript / JavaScript tabanlı servislerde endpoint ekleme, DTO/mapper düzenlemeleri ve testler.",
+        "SQL sorgu düzenlemeleri ve <span class=\"nowrap\">MongoDB</span> üzerinde temel optimizasyonlar.",
+        "Git akışıyla çalışma (branch stratejisi, code review) ve CI/CD sürecine entegrasyon."
+      ],
+      "high_list": [
+        "**ServeR** ile frontend ekiplerinin <em>backend’siz</em> test yapabilmesini sağlayan ortamların kurgulanması (REST, GraphQL, WebSocket / Socket.IO).",
+        "Takım içi sprint seremonilerine katılım; görev takibi ve raporlama.",
+        "Kurumsal kod standartlarına uygun, okunabilir ve test edilebilir kod üretimi."
+      ]
+    },
+    "vbt": {
+      "summary": "Java ve Angular teknolojileriyle modül geliştirme süreçlerine destek verdim. Profesyonel çalışma ortamında ekip içi iş akışlarını, code review ve görev planlaması gibi süreçleri deneyimledim.",
+      "res_list": [
+        "Angular ile sayfa/komponent oluşturma, servis entegrasyonları ve temel validasyonlar.",
+        "Java tarafında basit servis fonksiyonları, model/DTO düzenlemeleri.",
+        "SQL sorgularıyla veri okuma/yazma ve raporlama ihtiyaçlarının karşılanması."
+      ],
+      "learn_list": [
+        "Kurumsal Git akışları, issue takibi ve code review disiplinleri.",
+        "Frontend–Backend entegrasyon sürecinde iş birliği ve iletişim pratikleri."
+      ]
+    }
+  }
+}

@@ -5,7 +5,7 @@
       <div class="hero-left">
         <div class="emblem"><i class="pi pi-server"></i></div>
         <div>
-          <h1>Projeler</h1>
+          <h1>{{ t('projects.title') }}</h1>
           <span class="title-accent"></span>
         </div>
       </div>
@@ -18,7 +18,7 @@
       <header class="sheet-head">
         <div class="sheet-title">
           <i class="pi pi-bolt"></i>
-          <h2>ServeR — Frontend için Backend’siz Test Ortamı</h2>
+          <h2>{{ t('projects.serveR.title') }}</h2>
         </div>
         <div class="sheet-tags">
           <Tag rounded severity="success" value="REST" />
@@ -30,51 +30,31 @@
 
       <div class="rows">
         <article class="card">
-          <h3>Özet</h3>
-          <p>
-            ServeR; <strong>frontend ekiplerinin</strong> gerçek backend hazır olmasa bile
-            geliştirme ve <strong>test otomasyonunu</strong> sürdürebilmesi için tasarladığım
-            bir <em>mock/virtual backend</em> çözümüdür. Kurumsal süreçlerde sık yaşanan
-            “API bekleme” problemini azaltmayı hedefler, tutarlı ve tekrarlanabilir yanıtlarla
-            arayüz geliştirmeyi hızlandırır.
-          </p>
+          <h3>{{ t('projects.serveR.summary') }}</h3>
+          <p v-html="t('projects.serveR.summary_desc')"></p>
         </article>
 
         <article class="card">
-          <h3>Problem & Amaç</h3>
-          <p>
-            Dağıtık takımlarda UI geliştirme, API sözleşmeleri tamamlanana kadar yavaşlar.
-            ServeR; <strong>sözleşme odaklı</strong> (contract-first) yaklaşımı destekleyerek
-            <em>beklemeyi en aza indirme</em>, edge-case’leri önceden görme ve
-            <strong>takım içi paralel çalışma</strong> hedefleriyle geliştirildi.
-          </p>
+          <h3>{{ t('projects.serveR.problem') }}</h3>
+          <p v-html="t('projects.serveR.problem_desc')"></p>
         </article>
 
         <article class="card">
-          <h3>Çözüm Tasarımı</h3>
+          <h3>{{ t('projects.serveR.design') }}</h3>
           <ul class="bullets">
-            <li>Senaryo tabanlı yanıt üretimi (başarılı, boş veri, hata, gecikme vb.).</li>
-            <li>REST ve GraphQL için <strong>şema/sözleşmeden</strong> mock üretimi.</li>
-            <li>Gerçek zamanlı <strong>event akışlarını</strong> canlandırma (WebSocket / Socket.IO).</li>
-            <li>Profil/ortam izolasyonu (takım veya branch bazlı çalışma).</li>
-            <li>CLI & hafif yönetim katmanı ile hızlı geçiş ve sıfırlama.</li>
-            <li>Docker imajı ve <strong>CI/CD</strong> hattıyla taşınabilir kurulum.</li>
+            <li v-for="(feat, i) in tm('projects.serveR.design_features')" :key="i" v-html="rt(feat)"></li>
           </ul>
         </article>
 
         <article class="card">
-          <h3>Rolüm & Sorumluluklar</h3>
+          <h3>{{ t('projects.serveR.role') }}</h3>
           <ul class="bullets">
-            <li>Temel <strong>senaryo motorunun</strong> tasarımı ve geliştirilmesi.</li>
-            <li>REST/GraphQL <strong>adaptörlerinin</strong> yazılması ve sözleşme içeri aktarımı.</li>
-            <li>Socket.IO tabanlı gerçek zamanlı olay yayın/abonelik altyapısı.</li>
-            <li>Test otomasyonuna uygun <strong>fixture/seed</strong> akışının kurgulanması.</li>
-            <li>Kurulum, kullanım ve entegrasyon <strong>dokümantasyonu</strong>.</li>
+            <li v-for="(feat, i) in tm('projects.serveR.role_features')" :key="i" v-html="rt(feat)"></li>
           </ul>
         </article>
 
         <article class="card">
-          <h3>Teknik Yığın</h3>
+          <h3>{{ t('projects.serveR.tech') }}</h3>
           <div class="chips">
             <Tag rounded value="TypeScript" />
             <Tag rounded value="Node.js" />
@@ -88,11 +68,9 @@
         </article>
 
         <article class="card">
-          <h3>Sonuç & Öğrenimler</h3>
+          <h3>{{ t('projects.serveR.results') }}</h3>
           <ul class="bullets">
-            <li>UI geliştirme süreci, gerçek backend’den <strong>daha az bağımlı</strong> hâle geldi.</li>
-            <li>Edge-case senaryolar ve bağlantı sorunları <strong>erken görünür</strong> oldu.</li>
-            <li>Gerçek zamanlı sistemler, test kültürü ve <strong>kurumsal kod standartları</strong> konusunda pratik kazanımı.</li>
+            <li v-for="(feat, i) in tm('projects.serveR.results_features')" :key="i" v-html="rt(feat)"></li>
           </ul>
         </article>
       </div>
@@ -103,7 +81,7 @@
   <header class="sheet-head">
     <div class="sheet-title">
       <i class="pi pi-globe"></i>
-      <h2>Vue Web Siteleri — Modern Kurumsal Arayüzler</h2>
+      <h2>{{ t('projects.web.title') }}</h2>
     </div>
     <div class="sheet-tags">
       <Tag rounded severity="success" value="Vue" />
@@ -116,67 +94,125 @@
 
   <div class="rows">
     <article class="card">
-      <h3>Özet</h3>
-      <p>
-        Kurumsal müşteriler için <strong>tamamen Vue 3 ve Vite</strong> tabanlı modern web siteleri geliştiriyorum.
-        Bu projelerde <em>yüksek performanslı, SEO uyumlu ve mobil öncelikli</em> yapılar hedefleniyor.
-        Örnek: <a href="https://rmsyapigrubu.com" target="_blank">rmsyapigrubu.com</a>
-        <br><a href="https://peralegal.com.tr" target="_blank">peralegal.com.tr</a></br>
-      </p>
+      <h3>{{ t('projects.web.summary') }}</h3>
+      <p v-html="t('projects.web.summary_desc')"></p>
+      <p v-html="t('projects.web.desc')" style="margin-top: 0.5rem"></p>
     </article>
 
     <article class="card">
-      <h3>Genel Özellikler</h3>
+      <h3>{{ t('projects.web.features') }}</h3>
       <ul class="bullets">
-        <li>Vue 3 Composition API ve TypeScript ile modüler bileşen mimarisi.</li>
-        <li>Vite ile <em>hızlı derleme ve geliştirme ortamı</em>.</li>
-        <li>PrimeVue ve Tailwind CSS kullanılarak estetik ve uyumlu arayüzler.</li>
-        <li>SEO optimizasyonu ve meta etiket yönetimi.</li>
-        <li>Form işlemleri ve veri gönderimi için Axios entegresi.</li>
+        <li v-for="(feat, i) in tm('projects.web.features_list')" :key="i" v-html="rt(feat)"></li>
       </ul>
     </article>
 
     <article class="card">
-      <h3>Rolüm & Katkılar</h3>
-      <ul class="bullets">
-        <li>Site mimarisi, bileşen tasarımı ve frontend altyapısının tamamı.</li>
-        <li>Responsive arayüz ve mobil uyumlu tasarım optimizasyonları.</li>
-        <li>Form validasyonları, meta yönetimi ve SEO iyileştirmeleri.</li>
-        <li>Hosting ve domain yönetimi süreçlerinin takibi ve kurulumu.</li>
-      </ul>
-    </article>
-
-    <article class="card">
-      <h3>Teknik Yığın</h3>
-      <div class="chips">
-        <Tag rounded value="Vue 3" />
-        <Tag rounded value="Vite" />
-        <Tag rounded value="TypeScript" />
-        <Tag rounded value="PrimeVue" />
-        <Tag rounded value="Tailwind CSS" />
-        <Tag rounded value="Axios" />
-        <Tag rounded value="Netlify / cPanel" />
+      <h3>{{ t('projects.web.featured') }}</h3>
+      <div class="project-links">
+        <a href="https://trnyapı.com" target="_blank" class="p-link">
+          <i class="pi pi-external-link"></i>
+          <span>trnyapı.com</span>
+        </a>
+        <a href="https://rmsyapigrubu.com" target="_blank" class="p-link">
+          <i class="pi pi-external-link"></i>
+          <span>rmsyapigrubu.com</span>
+        </a>
+        <a href="https://peralegal.com.tr" target="_blank" class="p-link">
+          <i class="pi pi-external-link"></i>
+          <span>peralegal.com.tr</span>
+        </a>
       </div>
     </article>
 
     <article class="card">
-      <h3>Sonuç & Öğrenimler</h3>
+      <h3>{{ t('projects.web.strategic') }}</h3>
       <ul class="bullets">
-        <li>Kurumsal markalar için hızlı ve hafif Vue altyapısı standartlaştırıldı.</li>
-        <li>SEO ve performans ölçümlerinde yüksek puanlar elde edildi.</li>
-        <li>Birden fazla müşteri sitesi için ortak bileşen kitaplığı oluşturuldu.</li>
+        <li><strong>{{ t('projects.web.seo') }}</strong>: Google Analytics 4 ve Search Console ile veri takibi.</li>
+        <li><strong>{{ t('projects.web.performance') }}</strong>: Lighthouse skorlarında %90+ erişilebilirlik ve hız.</li>
+        <li><strong>{{ t('projects.web.responsive') }}</strong>: Tüm cihazlarda kusursuz kullanıcı deneyimi.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3>{{ t('projects.web.tech') }}</h3>
+      <div class="chips">
+        <Tag rounded value="Vue 3" />
+        <Tag rounded value="Vite" />
+        <Tag rounded value="TypeScript" />
+        <Tag rounded value="SEO/Analytics" />
+        <Tag rounded value="Search Console" />
+        <Tag rounded value="Tailwind CSS" />
+        <Tag rounded value="Axios" />
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>{{ t('projects.web.results') }}</h3>
+      <ul class="bullets">
+        <li v-for="(feat, i) in tm('projects.web.results_list')" :key="i" v-html="rt(feat)"></li>
       </ul>
     </article>
   </div>
 </section>
 
+    <!-- La Rosee Sales Management -->
+    <section class="sheet larosee">
+      <header class="sheet-head">
+        <div class="sheet-title">
+          <i class="pi pi-chart-bar"></i>
+          <h2>{{ t('projects.larosee.title') }}</h2>
+        </div>
+        <div class="sheet-tags">
+          <Tag rounded severity="success" value="Python (FastAPI)" />
+          <Tag rounded severity="info" value="Vue 3" />
+          <Tag rounded severity="warning" value="PostgreSQL" />
+          <Tag rounded value="Mobile-First" />
+        </div>
+      </header>
+
+      <div class="rows">
+        <article class="card flagship">
+          <h3>{{ t('projects.larosee.mobile_title') }}</h3>
+          <p>{{ t('projects.larosee.mobile_desc') }}</p>
+          <ul class="bullets">
+            <li><strong>{{ t('projects.larosee.mobile_features.ocr') }}</strong></li>
+            <li><strong>{{ t('projects.larosee.mobile_features.scoreboard') }}</strong></li>
+            <li><strong>{{ t('projects.larosee.mobile_features.aws') }}</strong></li>
+            <li><strong>{{ t('projects.larosee.mobile_features.offline') }}</strong></li>
+          </ul>
+        </article>
+
+        <article class="card flagship">
+          <h3>{{ t('projects.larosee.admin_title') }}</h3>
+          <p>{{ t('projects.larosee.admin_desc') }}</p>
+          <ul class="bullets">
+            <li><strong>{{ t('projects.larosee.admin_features.finance') }}</strong></li>
+            <li><strong>{{ t('projects.larosee.admin_features.stock') }}</strong></li>
+            <li><strong>{{ t('projects.larosee.admin_features.rep') }}</strong></li>
+            <li><strong>{{ t('projects.larosee.admin_features.comm') }}</strong></li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>{{ t('projects.larosee.tech') }}</h3>
+          <div class="chips">
+            <Tag rounded value="Flutter & Dart" />
+            <Tag rounded value="FastAPI (Python)" />
+            <Tag rounded value="AWS EC2 / RDS" />
+            <Tag rounded value="Firebase / FCM" />
+            <Tag rounded value="Google Document AI" />
+            <Tag rounded value="PostgreSQL" />
+          </div>
+        </article>
+      </div>
+    </section>
 
     <!-- Tiki Taka Toe -->
     <section class="sheet tiki">
       <header class="sheet-head">
         <div class="sheet-title">
           <i class="pi pi-th-large"></i>
-          <h2>Tiki Taka Toe — Futbol Bilgisiyle 3x3 Strateji</h2>
+          <h2>{{ t('projects.tiki.title') }}</h2>
         </div>
         <div class="sheet-tags">
           <Tag rounded severity="success" value="Flutter" />
@@ -189,47 +225,33 @@
 
       <div class="rows">
         <article class="card">
-          <h3>Özet</h3>
-          <p>
-            <strong>Tiki Taka Toe</strong>, futbol bilgisini ve stratejiyi birleştiren çok oyunculu bir mobil oyundur.
-            4x4’lük tahtanın kenarlarında <em>milli takımlar</em> ve <em>kulüpler</em> listelenir; merkezdeki 3x3
-            kesişim alanlarına her iki kriteri de sağlayan futbolcular yazılır. Doğru seçimler,
-            o anki oyuncuya <strong>X/O</strong> işareti kazandırır; amaç, bilgi doğruluğunu korurken
-            üçlü dizilişi (XXX/OOO) tamamlamaktır.
-          </p>
+          <h3>{{ t('projects.tiki.summary') }}</h3>
+          <p v-html="t('projects.tiki.summary_desc')"></p>
         </article>
 
         <article class="card">
-          <h3>Oynanış Mekaniği</h3>
+          <h3>{{ t('projects.tiki.mechanics') }}</h3>
           <ul class="bullets">
-            <li>Tahtanın kenarları: üst/soldaki başlıklarda milli takım ve kulüp isimleri.</li>
-            <li>Merkez 3x3 hücre: ilgili satır ve sütundaki iki koşulu da sağlayan bir futbolcu girilir.</li>
-            <li>Hamle doğrulanınca hücre, hamleyi yapan oyuncunun <strong>X</strong> veya <strong>O</strong> işaretiyle kilitlenir.</li>
-            <li>Kazanım: dikey/yatay/çapraz üçlü oluşturmak; beraberlikte bilgi doğruluğu önceliklidir.</li>
+            <li v-for="(feat, i) in tm('projects.tiki.mechanics_list')" :key="i" v-html="rt(feat)"></li>
           </ul>
         </article>
 
         <article class="card">
-          <h3>Mimari & Altyapı</h3>
+          <h3>{{ t('projects.tiki.architecture') }}</h3>
           <ul class="bullets">
-            <li><strong>Flutter (Dart)</strong> istemci: tahta durumu, sıra yönetimi ve doğrulama geri bildirimleri.</li>
-            <li><strong>Python tabanlı backend</strong>: futbolcu–kulüp–milli takım eşleştirme doğrulama motoru.</li>
-            <li><strong>WebSocket</strong> lobi: oda açma/katılma, gerçek zamanlı eşleşme ve sıra güncellemeleri.</li>
-            <li>Oyun kuralları sunucu tarafında saklanır; geçersiz hamleler anında reddedilir.</li>
+            <li v-for="(feat, i) in tm('projects.tiki.architecture_list')" :key="i" v-html="rt(feat)"></li>
           </ul>
         </article>
 
         <article class="card">
-          <h3>Rolüm & Katkılar</h3>
+          <h3>{{ t('projects.tiki.role') }}</h3>
           <ul class="bullets">
-            <li>Flutter arayüzü ve oyun döngüsünün (turn, geçerlilik, bitiş) kurgulanması.</li>
-            <li>Python doğrulama servisi ve WebSocket tabanlı <strong>lobi/oda</strong> mimarisinin geliştirilmesi.</li>
-            <li>Gerçek zamanlı senkronizasyon ve yarışma akışında hata/kenar durumlarının yönetimi.</li>
+            <li v-for="(feat, i) in tm('projects.tiki.role_list')" :key="i" v-html="rt(feat)"></li>
           </ul>
         </article>
 
         <article class="card">
-          <h3>Teknik Yığın</h3>
+          <h3>{{ t('projects.tiki.tech') }}</h3>
           <div class="chips">
             <Tag rounded value="Flutter" />
             <Tag rounded value="Dart" />
@@ -241,11 +263,9 @@
         </article>
 
         <article class="card">
-          <h3>Öğrenimler</h3>
+          <h3>{{ t('projects.tiki.learnings') }}</h3>
           <ul class="bullets">
-            <li>Gerçek zamanlı oda yapıları ve sıra yönetiminde <strong>tutarlılık</strong> ve <strong>gecikme toleransı</strong>.</li>
-            <li>Bilgi doğrulama kuralları için <strong>esnek şema</strong> ve ağ gecikmelerine karşı kullanıcı deneyimi.</li>
-            <li>Mobil-sunucu iletişiminde hata senaryolarını sadeleştirerek oyun akışını koruma.</li>
+            <li v-for="(feat, i) in tm('projects.tiki.learnings_list')" :key="i" v-html="rt(feat)"></li>
           </ul>
         </article>
       </div>
@@ -255,11 +275,15 @@
 
 <script setup lang="ts">
 import Tag from 'primevue/tag'
+import { useI18n } from 'vue-i18n'
+
+const { t, tm, rt } = useI18n()
 </script>
 
 <style scoped>
 
 .sheet.websites { --tint: #0ea5e9; } /* Vue Web Siteleri için mavi ton */
+.sheet.larosee { --tint: #f43f5e; }  /* La Rosee için canlı kırmızı/pembe ton */
 
 /* ---- Canvas (katmanlı renk + doku) ---- */
 .projects-neo{
@@ -402,6 +426,50 @@ import Tag from 'primevue/tag'
   border:none; font-weight:800; color:#0f172a;
   background: linear-gradient(180deg, color-mix(in srgb, var(--tint) 30%, white), color-mix(in srgb, var(--tint) 12%, white));
   box-shadow: 0 6px 14px var(--tint-10), inset 0 1px 0 rgba(255,255,255,.6);
+}
+
+/* Proje Linkleri Kartı */
+.project-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+.p-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: color-mix(in srgb, var(--tint) 8%, var(--surface-card));
+  border: 1px solid color-mix(in srgb, var(--tint) 20%, var(--surface-border));
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+.p-link:hover {
+  background: var(--tint);
+  color: #fff;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px var(--tint-16);
+}
+.p-link i {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Flagship kart vurgusu */
+.card.flagship {
+  grid-column: span 1;
+  background: 
+    linear-gradient(135deg, color-mix(in srgb, var(--tint) 15%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--surface-0), var(--surface-card));
+  border-width: 2px;
+}
+@media (min-width: 900px) {
+  .sheet.larosee .rows { grid-template-columns: 1fr 1fr; }
+  .sheet.larosee .card:last-child { grid-column: span 2; }
 }
 
 /* ---- Responsive tweaks ---- */

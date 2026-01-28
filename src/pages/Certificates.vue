@@ -7,8 +7,8 @@
           <i class="pi pi-certificate"></i>
         </div>
         <div>
-          <h1>Sertifikalar</h1>
-          <p>Topluluk katkıları ve teknik gelişimimi belgeleyen çalışmalar.</p>
+          <h1>{{ t('certificates.title') }}</h1>
+          <p>{{ t('certificates.subtitle') }}</p>
           <span class="title-accent"></span>
         </div>
       </div>
@@ -34,7 +34,7 @@
         <div class="view-toggle">
           <Button :outlined="view!=='grid'" size="small" icon="pi pi-th-large" @click="view='grid'"/>
           <Button :outlined="view!=='list'" size="small" icon="pi pi-list" @click="view='list'"/>
-          <Button size="small" icon="pi pi-sliders-h" label="Sıfırla" severity="contrast" @click="reset"/>
+          <Button size="small" icon="pi pi-sliders-h" :label="t('certificates.sort.reset')" severity="contrast" @click="reset"/>
         </div>
       </div>
     </nav>
@@ -100,17 +100,13 @@
         </div>
 
         <div class="actions">
-          <Button size="small" icon="pi pi-eye" label="Önizle" text />
+          <Button size="small" icon="pi pi-eye" :label="t('certificates.preview')" text />
           <a v-if="c.file" :href="c.file" target="_blank" rel="noopener" @click.stop>
-            <Button size="small" icon="pi pi-download" label="İndir" text />
+            <Button size="small" icon="pi pi-download" :label="t('certificates.download')" text />
           </a>
         </div>
       </article>
 
-      <div v-if="rest.length === 0" class="empty">
-        <i class="pi pi-filter-slash"></i>
-        <p>Sonuç bulunamadı.</p>
-      </div>
     </section>
 
     <!-- PREVIEW DIALOG -->
@@ -151,6 +147,9 @@ import Dropdown from 'primevue/dropdown'
 import Button from 'primevue/button'
 import Dialog from 'primevue/dialog'
 import Tag from 'primevue/tag'
+import { useI18n } from 'vue-i18n'
+
+const { t, locale } = useI18n()
 
 type Cert = {
   id: string
@@ -165,26 +164,31 @@ type Cert = {
   file?: string
 }
 
-const formatDate = (iso: string) =>
-  new Date(iso).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long' })
+const formatDate = (iso: string) => {
+  // locale.value 'tr' veya 'en' olabilir, bunu 'tr-TR' / 'en-US' formatına çevirebiliriz
+  // veya direkt locale.value versek de çoğu tarayıcı 'en' için 'en-US' gibi davranır.
+  return new Date(iso).toLocaleDateString(locale.value, { year: 'numeric', month: 'long' })
+}
 
 /** --- PDF doğrudan assets içinde --- */
 import gdscCorePdf from '@/assets/bahribirer.pdf'
 
 /** --- Veri (GDSC kurucu üye) --- */
-const certs = ref<Cert[]>([
+const certs = computed<Cert[]>(() => [
   {
     id: 'gdsc-core-2023',
-    title: 'Google Developer Student Clubs — Core Member',
-    issuer: 'Google Developer Student Clubs (Atılım)',
+    title: t('certificates.gdsc_core_2023.title'),
+    issuer: t('certificates.gdsc_core_2023.issuer'),
     year: 2023,
     date: '2023-06-30',
-    description:
-      'GDSC Atılım kurucu çekirdek ekip üyesi olarak topluluk kurulum ve büyütme faaliyetlerinde aktif rol.',
-    long:
-      'GDSC Atılım’da kurucu çekirdek ekipte; kulüp yapılanmasının oluşturulması, etkinlik/atölye planlama, konuşmacı ilişkileri ve tanıtım çalışmalarında sorumluluk aldım. Kampüste geliştirici topluluğunun büyümesine katkı sağladım.',
-    badges: ['Kurucu Üye', 'Core Team', 'Topluluk'],
-    ref: '2022–2023 Akademik Yılı',
+    description: t('certificates.gdsc_core_2023.desc'),
+    long: t('certificates.gdsc_core_2023.long'),
+    badges: [
+      t('certificates.gdsc_core_2023.badges.founder'),
+      t('certificates.gdsc_core_2023.badges.core'),
+      t('certificates.gdsc_core_2023.badges.community')
+    ],
+    ref: t('certificates.gdsc_core_2023.ref'),
     file: gdscCorePdf
   }
 ])
@@ -192,12 +196,12 @@ const certs = ref<Cert[]>([
 /** --- Görünüm / Sıralama --- */
 const view = ref<'grid' | 'list'>('grid')
 const sortKey = ref<'year-desc' | 'year-asc' | 'title-az' | 'issuer-az'>('year-desc')
-const sortOptions = [
-  { label: 'Yıla göre (yeni → eski)', value: 'year-desc' },
-  { label: 'Yıla göre (eski → yeni)', value: 'year-asc' },
-  { label: 'Başlık (A → Z)', value: 'title-az' },
-  { label: 'Sağlayıcı (A → Z)', value: 'issuer-az' }
-]
+const sortOptions = computed(() => [
+  { label: t('certificates.sort.year_desc'), value: 'year-desc' },
+  { label: t('certificates.sort.year_asc'), value: 'year-asc' },
+  { label: t('certificates.sort.title_az'), value: 'title-az' },
+  { label: t('certificates.sort.issuer_az'), value: 'issuer-az' }
+])
 
 const sorted = computed(() => {
   const arr = [...certs.value]

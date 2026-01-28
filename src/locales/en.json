@@ -1,0 +1,258 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "certificates": "Certificates",
+    "contact": "Contact"
+  },
+  "home": {
+    "status": "Open for Projects",
+    "title": "Software Engineer",
+    "desc": "I develop high-performance, scalable web applications with a focus on user experience. I specialize in Vue.js, Python, and real-time system architectures.",
+    "cta": "See My Projects"
+  },
+  "projects": {
+    "title": "Projects",
+    "serveR": {
+      "title": "ServeR — Backendless Test Environment for Frontend",
+      "summary": "Summary",
+      "summary_desc": "ServeR is a *mock/virtual backend* solution I designed for **frontend teams** to maintain development and **test automation** even if the real backend isn't ready.",
+      "problem": "Problem & Purpose",
+      "problem_desc": "UI development in distributed teams slows down until API contracts are completed. ServeR was developed with the goal of *minimizing waiting* by supporting a **contract-first** approach.",
+      "design": "Solution Design",
+      "design_features": [
+        "Scenario-based response generation (success, empty data, error, delay, etc.).",
+        "Mock generation from **schema/contract** for REST and GraphQL.",
+        "Simulation of real-time **event streams** (WebSocket / Socket.IO).",
+        "Profile/environment isolation (team or branch-based work).",
+        "Fast switching and reset with CLI & lightweight management layer.",
+        "Portable installation with Docker image and **CI/CD** pipeline."
+      ],
+      "role": "My Role & Responsibilities",
+      "role_features": [
+        "Design and development of the core **scenario engine**.",
+        "Writing REST/GraphQL **adapters** and importing contracts.",
+        "Socket.IO based real-time event publish/subscribe infrastructure.",
+        "Setting up **fixture/seed** flows suitable for test automation.",
+        "Installation, usage, and integration **documentation**."
+      ],
+      "results": "Results & Learnings",
+      "results_features": [
+        "UI development process became **less dependent** on the real backend.",
+        "Edge-case scenarios and connection issues became **visible early**.",
+        "Practical experience gained in real-time systems, test culture, and **corporate code standards**."
+      ],
+      "tech": "Tech Stack"
+    },
+    "web": {
+      "title": "Vue Web Sites — Modern Corporate Interfaces",
+      "summary": "Summary",
+      "summary_desc": "I develop modern web sites based **entirely on Vue 3 and Vite** for corporate clients. These projects aim for *high performance, SEO compliance, and mobile-first* structures.",
+      "desc": "Especially in my recent projects, I manage **SEO strategies, Google Analytics 4 (GA4), and Search Console** integrations end-to-end to increase digital visibility.<br />Examples: <a href=\"https://trnyapı.com\" target=\"_blank\">trnyapı.com</a>, <a href=\"https://rmsyapigrubu.com\" target=\"_blank\">rmsyapigrubu.com</a>, <a href=\"https://peralegal.com.tr\" target=\"_blank\">peralegal.com.tr</a>",
+      "features": "General Features",
+      "features_list": [
+        "Modular component architecture with Vue 3 Composition API and TypeScript.",
+        "Fast build and development environment with Vite.",
+        "Aesthetic and harmonious interfaces using PrimeVue and Tailwind CSS.",
+        "SEO optimization and meta tag management.",
+        "Axios integration for form processing and data submission."
+      ],
+      "featured": "Featured Projects",
+      "strategic": "Strategic Contributions",
+      "seo": "SEO & Analytics",
+      "performance": "Performance",
+      "responsive": "Responsive",
+      "tech": "Tech Stack",
+      "results": "Results & Learnings",
+      "results_list": [
+        "Fast and lightweight Vue infrastructure standardized for corporate brands.",
+        "Data-driven SEO tracking provided with **Google Analytics and Search Console**.",
+        "High scores achieved in performance measurements (Lighthouse)."
+      ]
+    },
+    "larosee": {
+      "title": "La Rosee Sales — Smart Sales & Stock Management",
+      "mobile_title": "Field Sales & Competition (Mobile)",
+      "mobile_desc": "The mobile app developed with Flutter manages all operations of the field personnel:",
+      "mobile_features": {
+        "ocr": "Smart Reporting: Instant report upload via Google OCR or Excel.",
+        "scoreboard": "Live Scoreboard: Real-time ranking between personnel based on sales data.",
+        "aws": "AWS & Twilio: Secure backend running on EC2 and SMS OTP verification.",
+        "offline": "Offline Sync: Data entry without internet and Firebase synchronization."
+      },
+      "admin_title": "Strategic Management (Admin Panel)",
+      "admin_desc": "Central command center developed with Vue 3 & PrimeVue for managers:",
+      "admin_features": {
+        "finance": "Financial Analysis: Profit/Loss tables and turnover tracking.",
+        "stock": "Integrated Stock System: Inter-branch inventory and barcode tracking.",
+        "rep": "Rep Management: KPI metrics and route analysis.",
+        "comm": "Communication Hub: Sending instant push notifications to the field."
+      },
+      "tech": "Technical Infrastructure"
+    },
+    "tiki": {
+      "title": "Tiki Taka Toe — 3x3 Strategy with Football Knowledge",
+      "summary": "Summary",
+      "summary_desc": "**Tiki Taka Toe** is a multiplayer mobile game that combines football knowledge and strategy. *National teams* and *clubs* are listed on the edges of a 4x4 board; football players who meet both criteria are written in the 3x3 intersection areas in the center.",
+      "mechanics": "Gameplay Mechanics",
+      "mechanics_list": [
+        "Edged of the board: national team and club names in the top/left headers.",
+        "Center 3x3 cell: a football player who meets both criteria in the relevant row and column is entered.",
+        "When the move is verified, the cell is locked with the **X** or **O** mark of the player who made the move.",
+        "Winning: forming a vertical/horizontal/diagonal triple; accuracy of information takes priority in a draw."
+      ],
+      "architecture": "Architecture & Infrastructure",
+      "architecture_list": [
+        "**Flutter (Dart)** client: board state, turn management, and verification feedback.",
+        "**Python-based backend**: player–club–national team matching verification engine.",
+        "**WebSocket** lobby: room creation/joining, real-time matching, and turn updates.",
+        "Game rules are stored on the server side; invalid moves are immediately rejected."
+      ],
+      "role": "My Role & Contributions",
+      "role_list": [
+        "Implementation of the Flutter interface and game loop (turn, validity, end).",
+        "Development of the Python verification service and WebSocket-based **lobby/room** architecture.",
+        "Management of real-time synchronization and error/edge cases in the competition flow."
+      ],
+      "tech": "Tech Stack",
+      "learnings": "Learnings",
+      "learnings_list": [
+        "**Consistency** and **latency tolerance** in real-time room structures and turn management.",
+        "**Flexible schema** for info verification rules and UX against network delays.",
+        "Maintaining game flow by simplifying error scenarios in mobile-server communication."
+      ]
+    }
+  },
+  "skills": {
+    "title": "My Skill Map",
+    "status": "Current Profile",
+    "subtitle": "Grouped by categories; averages as donut charts, skills as fluid bars.",
+    "total_skills": "Total {n} skills",
+    "avg_pct": "Average {n}%",
+    "strongest": "Strongest: {name}",
+    "search": "Search skills… (e.g. Vue, Docker)",
+    "reset": "Reset",
+    "average": "Average",
+    "empty": "No results found.",
+    "sort": {
+      "lvl_desc": "Level (high → low)",
+      "lvl_asc": "Level (low → high)",
+      "az": "Name (A → Z)",
+      "za": "Name (Z → A)",
+      "cat_name": "By category name",
+      "cat_avg": "By category average"
+    },
+    "cats": {
+      "frontend": "Frontend",
+      "frontend_desc": "I develop user-friendly interfaces with modern frontend technologies.",
+      "backend": "Backend",
+      "backend_desc": "I design and develop powerful backend systems and APIs.",
+      "database": "Database",
+      "database_desc": "I work with relational and NoSQL databases.",
+      "devops": "DevOps & Tools",
+      "devops_desc": "Containerization, CI/CD, and version control systems.",
+      "seo": "SEO & Digital Strategy",
+      "seo_desc": "Technical SEO and analysis to increase website visibility.",
+      "langs": "Programming Languages",
+      "langs_desc": "Development with system and high-level languages."
+    }
+  },
+  "about": {
+    "title": "Education",
+    "subtitle": "My academic background and the source of my core competencies.",
+    "uni": {
+      "title": "Software Engineering (B.Sc.) — Graduate",
+      "subtitle": "Atılım University • 2020 – 2025",
+      "desc": "Graduated from Atılım University, Software Engineering in 2025 (GPA 3.13, 100% English). Focused on algorithms, software architecture, web technologies, and real-time systems. Prioritized production quality in team projects using Agile/Scrum processes, Git flows, and code review culture."
+    },
+    "hs": {
+      "title": "Samsun Anatolian High School",
+      "subtitle": "High School • 2016 – 2020",
+      "desc": "Gained a strong foundation focused on mathematics and basic sciences. Established the basics of my disciplined work, analytical thinking, and problem-solving habits during this period."
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "certificates": {
+    "title": "Certificates",
+    "subtitle": "Works documenting my community contributions and technical development.",
+    "sort": {
+      "year_desc": "By Year (New → Old)",
+      "year_asc": "By Year (Old → New)",
+      "title_az": "Title (A → Z)",
+      "issuer_az": "Issuer (A → Z)",
+      "reset": "Reset"
+    },
+    "preview": "Preview",
+    "download": "Download",
+    "empty": "No results found.",
+    "gdsc_core_2023": {
+      "title": "Google Developer Student Clubs — Core Member",
+      "issuer": "Google Developer Student Clubs (Atılım)",
+      "date": "June 30, 2023",
+      "desc": "Active role in community establishment and growth activities as a founding core team member of GDSC Atılım.",
+      "long": "As a founding core team member at GDSC Atılım; I took responsibility in establishing the club structure, planning events/workshops, speaker relations, and promotion activities. I contributed to the growth of the developer community on campus.",
+      "badges": {
+        "founder": "Founding Member",
+        "core": "Core Team",
+        "community": "Community"
+      },
+      "ref": "2022–2023 Academic Year"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "You can reach out here for projects, job offers, or just to say hi.",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "location_val": "Ankara, Turkey",
+    "social": "Social",
+    "copy": "Copy",
+    "open_map": "Open Map",
+    "copied_mail": "Email copied",
+    "copied_phone": "Phone copied"
+  },
+  "experience": {
+    "title": "Experiences",
+    "subtitle": "Experiences gained throughout my professional career:",
+    "responsibilities": "Responsibilities",
+    "highlights": "Highlights",
+    "learnings": "Key Learnings",
+    "tech_stack": "Technologies Used:",
+    "role": {
+      "long_term": "Long Term Intern / Co-op Program",
+      "intern": "Intern"
+    },
+    "havelsan": {
+      "summary": "Took part in enterprise software development processes. Contributed to module development using TypeScript; adopted corporate code standards by adapting to team workflows. Worked on real-time systems and test automation environments within the scope of my graduation project **ServeR**.",
+      "res_list": [
+        "Screen and component development, state and form management in corporate modules using TypeScript and YAML structure on the frontend with Vue.js.",
+        "Endpoint addition, DTO/mapper adjustments, and tests in TypeScript / JavaScript based services.",
+        "SQL query adjustments and basic optimizations on <span class=\"nowrap\">MongoDB</span>.",
+        "Working with Git flow (branch strategy, code review) and integration into the CI/CD process."
+      ],
+      "high_list": [
+        "Designing environments that enable frontend teams to test <em>without backend</em> using **ServeR** (REST, GraphQL, WebSocket / Socket.IO).",
+        "Participation in internal team sprint ceremonies; task tracking and reporting.",
+        "Producing code that is readable, testable, and compliant with corporate code standards."
+      ]
+    },
+    "vbt": {
+      "summary": "Supported module development processes with Java and Angular technologies. Experienced processes such as internal team workflows, code reviews, and task planning in a professional work environment.",
+      "res_list": [
+        "Page/component creation, service integrations, and basic validations with Angular.",
+        "Basic service functions, model/DTO adjustments on the Java side.",
+        "Meeting data reading/writing and reporting needs with SQL queries."
+      ],
+      "learn_list": [
+        "Corporate Git flows, issue tracking, and code review disciplines.",
+        "Collaboration and communication practices in the Frontend–Backend integration process."
+      ]
+    }
+  }
+}

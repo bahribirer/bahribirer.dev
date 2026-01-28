@@ -9,16 +9,16 @@
         </div>
         <div>
           <div class="title-row">
-            <h1>Yetenek Haritam</h1>
+            <h1>{{ t('skills.title') }}</h1>
             <span class="title-chip">
-              <i class="pi pi-bolt"></i> Güncel Profil
+              <i class="pi pi-bolt"></i> {{ t('skills.status') }}
             </span>
           </div>
-          <p>Kategorilere göre gruplandı; ortalamalar donut chart, beceriler akışkan barlarla.</p>
+          <p>{{ t('skills.subtitle') }}</p>
           <div class="chips">
-            <Tag severity="success" rounded :value="`Toplam ${flatSkills.length} beceri`" />
-            <Tag severity="info" rounded :value="`Ortalama %${overallPct}`" />
-            <Tag severity="warning" rounded :value="`Güçlü: ${strongestCategory}`" />
+            <Tag severity="success" rounded :value="t('skills.total_skills', { n: flatSkills.length })" />
+            <Tag severity="info" rounded :value="t('skills.avg_pct', { n: overallPct })" />
+            <Tag severity="warning" rounded :value="t('skills.strongest', { name: strongestCategory })" />
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@
           <InputText
             v-model="q"
             class="search-input"
-            placeholder="Beceri ara… (örn. Vue, Docker)"
+            :placeholder="t('skills.search')"
             aria-label="Beceri arama"
           />
           <Button
@@ -54,7 +54,7 @@
         <Button
           class="w-full"
           icon="pi pi-sliders-h"
-          label="Sıfırla"
+          :label="t('skills.reset')"
           severity="contrast"
           @click="resetFilters"
         />
@@ -99,7 +99,7 @@
             <!-- Tam ortalanmış merkez metin -->
             <div class="donut-center">
               <div class="donut-pct">{{ displayDonut(grp.id) }}%</div>
-              <div class="donut-label">Ortalama</div>
+              <div class="donut-label">{{ t('skills.average') }}</div>
             </div>
           </div>
         </div>
@@ -131,7 +131,7 @@
 
       <div v-if="groupedCats.length === 0" class="empty">
         <i class="pi pi-filter-slash"></i>
-        <p>Sonuç bulunamadı.</p>
+        <p>{{ t('skills.empty') }}</p>
       </div>
     </section>
   </div>
@@ -143,15 +143,18 @@ import InputText from 'primevue/inputtext'
 import Dropdown from 'primevue/dropdown'
 import Button from 'primevue/button'
 import Tag from 'primevue/tag'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 type Skill = { name: string; level: number }
 type Category = { name: string; icon: string; description: string; skills: Skill[] }
 
-const skillCategories: Category[] = [
+const skillCategories = computed<Category[]>(() => [
   {
-    name: 'Frontend',
+    name: t('skills.cats.frontend'),
     icon: 'pi pi-desktop',
-    description: 'Modern frontend teknolojileriyle kullanıcı dostu arayüzler geliştiriyorum.',
+    description: t('skills.cats.frontend_desc'),
     skills: [
       { name: 'HTML / CSS', level: 4 },
       { name: 'Vue.js', level: 4 },
@@ -160,9 +163,9 @@ const skillCategories: Category[] = [
     ]
   },
   {
-    name: 'Backend',
+    name: t('skills.cats.backend'),
     icon: 'pi pi-server',
-    description: 'Güçlü backend sistemleri ve API’ler tasarlayıp geliştiriyorum.',
+    description: t('skills.cats.backend_desc'),
     skills: [
       { name: 'Node.js', level: 4 },
       { name: 'Spring Boot', level: 2 },
@@ -172,9 +175,9 @@ const skillCategories: Category[] = [
     ]
   },
   {
-    name: 'Veritabanı',
+    name: t('skills.cats.database'),
     icon: 'pi pi-database',
-    description: 'İlişkisel ve NoSQL veritabanlarıyla çalışıyorum.',
+    description: t('skills.cats.database_desc'),
     skills: [
       { name: 'MongoDB', level: 5 },
       { name: 'PostgreSQL', level: 4 },
@@ -182,30 +185,42 @@ const skillCategories: Category[] = [
     ]
   },
   {
-    name: 'DevOps & Tools',
+    name: t('skills.cats.devops'),
     icon: 'pi pi-cog',
-    description: 'Konteynerleştirme, CI/CD ve versiyon kontrol sistemleri.',
+    description: t('skills.cats.devops_desc'),
     skills: [
       { name: 'Docker', level: 4 },
-      { name: 'Kubernetes', level: 2 },
       { name: 'Git', level: 5 },
-      { name: 'BitBucket', level: 4 }
+      { name: 'AWS (EC2/S3)', level: 3 },
+      { name: 'Firebase', level: 4 },
+      { name: 'Google Analytics 4', level: 4 },
+      { name: 'Search Console', level: 4 }
     ]
   },
   {
-    name: 'Programlama Dilleri',
+    name: t('skills.cats.seo'),
+    icon: 'pi pi-chart-line',
+    description: t('skills.cats.seo_desc'),
+    skills: [
+      { name: 'Teknik SEO', level: 4 },
+      { name: 'OCR & AI Vision', level: 4 },
+      { name: 'Twilio SMS API', level: 4 },
+      { name: 'Site Hızı Optimizasyonu', level: 4 }
+    ]
+  },
+  {
+    name: t('skills.cats.langs'),
     icon: 'pi pi-code',
-    description: 'Sistem ve yüksek seviye dillerle geliştirme.',
+    description: t('skills.cats.langs_desc'),
     skills: [
       { name: 'C / C++', level: 3 },
       { name: 'Java', level: 3 },
       { name: 'Python', level: 3 },
       { name: 'Dart', level: 4 },
-            { name: 'JavaScript / TypeScript', level: 4 },
-
+      { name: 'JavaScript / TypeScript', level: 4 },
     ]
   }
-]
+])
 
 /** Yardımcılar: Türkçe karakterleri de normalize eden slug */
 const slug = (s: string) => {
@@ -225,15 +240,15 @@ const toPct = (lvl: number) => Math.round((lvl / 5) * 100)
 
 /** Düz liste ve özet */
 const flatSkills = computed(() =>
-  skillCategories.flatMap(cat =>
+  skillCategories.value.flatMap(cat =>
     cat.skills.map((s, i) => ({
       id: `${slug(cat.name)}-${i}-${slug(s.name)}`,
       category: cat.name,
-      description: skillCategories.find(c => c.name === cat.name)?.description ?? '',
+      description: skillCategories.value.find(c => c.name === cat.name)?.description ?? '',
       name: s.name,
       level: s.level,
       percent: toPct(s.level),
-      icon: skillCategories.find(c => c.name === cat.name)?.icon ?? 'pi pi-tag'
+      icon: skillCategories.value.find(c => c.name === cat.name)?.icon ?? 'pi pi-tag'
     }))
   )
 )
@@ -259,14 +274,14 @@ const strongestCategory = computed(() => {
 /** Filtre & sıralama */
 const q = ref('')
 const sortKey = ref<'lvl-desc' | 'lvl-asc' | 'az' | 'za' | 'cat-name' | 'cat-avg'>('lvl-desc')
-const sortOptions = [
-  { label: 'Seviye (yüksek → düşük)', value: 'lvl-desc' },
-  { label: 'Seviye (düşük → yüksek)', value: 'lvl-asc' },
-  { label: 'İsim (A → Z)', value: 'az' },
-  { label: 'İsim (Z → A)', value: 'za' },
-  { label: 'Kategori adına göre', value: 'cat-name' },
-  { label: 'Kategori ortalamasına göre', value: 'cat-avg' }
-]
+const sortOptions = computed(() => [
+  { label: t('skills.sort.lvl_desc'), value: 'lvl-desc' },
+  { label: t('skills.sort.lvl_asc'), value: 'lvl-asc' },
+  { label: t('skills.sort.az'), value: 'az' },
+  { label: t('skills.sort.za'), value: 'za' },
+  { label: t('skills.sort.cat_name'), value: 'cat-name' },
+  { label: t('skills.sort.cat_avg'), value: 'cat-avg' }
+])
 
 const filteredByQuery = computed(() => {
   const term = q.value.trim().toLowerCase()
@@ -340,11 +355,12 @@ const C = 2 * Math.PI * R
 
 /** Yardımcılar */
 function resetFilters() { q.value = ''; sortKey.value = 'lvl-desc' }
-function catSeverity(cat: string) {
-  if (cat.includes('Frontend')) return 'info'
-  if (cat.includes('Backend')) return 'success'
-  if (cat.includes('Veritabanı')) return 'help'
-  if (cat.includes('DevOps')) return 'warning'
+function catSeverity(catName: string) {
+  // Translate cat names back to keys or use localized names
+  if (catName === t('skills.cats.frontend')) return 'info'
+  if (catName === t('skills.cats.backend')) return 'success'
+  if (catName === t('skills.cats.database')) return 'help'
+  if (catName === t('skills.cats.devops') || catName === t('skills.cats.seo')) return 'warning'
   return 'contrast'
 }
 
@@ -376,7 +392,7 @@ function observeNew() {
 onMounted(async () => {
   // Başlangıçları 0 yap
   for (const s of flatSkills.value) progress.value[s.id] = 0
-  for (const c of skillCategories) donut.value[`cat-${slug(c.name)}`] = 0
+  for (const c of skillCategories.value) donut.value[`cat-${slug(c.name)}`] = 0
 
   io = new IntersectionObserver(entries => {
     for (const e of entries) {
@@ -495,11 +511,13 @@ watch([q, sortKey, groupedCats], () => observeNew(), { deep: true })
   box-shadow: 0 12px 28px color-mix(in srgb, var(--tint) 10%, transparent);
 }
 
-/* kategori -> tint bağlama */
+/* Kategori anahtarlarını daha sağlam yönetmek için id veya slug kullanacağız */
 .group-card[data-key="frontend"]            { --tint: var(--c-frontend); }
 .group-card[data-key="backend"]             { --tint: var(--c-backend); }
-.group-card[data-key="veritabani"]          { --tint: var(--c-db); }
+.group-card[data-key="database"]            { --tint: var(--c-db); }
 .group-card[data-key="devops-tools"]        { --tint: var(--c-devops); }
+.group-card[data-key="seo-dijital-strateji"] { --tint: #f59e0b; }
+.group-card[data-key="programming-languages"] { --tint: var(--c-langs); }
 .group-card[data-key="programlama-dilleri"] { --tint: var(--c-langs); }
 
 .group-head {

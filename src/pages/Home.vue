@@ -1,212 +1,310 @@
 <template>
-  <section class="home-hero grid align-items-center min-h-screen p-4 md:p-6 lg:p-8">
-    <!-- Profil Fotoğrafı -->
-    <div class="col-12 md:col-5 flex justify-content-center mb-6 md:mb-0">
-      <div class="profile-wrapper">
-        <img
-          src="@/assets/images/bahri.jpg"
-          alt="Bahri Birer"
-          class="profile-img"
-        />
-      </div>
+  <section class="home-neo">
+    <!-- Immersive Background Layers -->
+    <div class="aurora-wrap">
+      <div class="aurora a"></div>
+      <div class="aurora b"></div>
+      <div class="aurora c"></div>
     </div>
+    
+    <div class="grid-overlay"></div>
 
-    <!-- Tanıtım -->
-    <div class="col-12 md:col-7 text-center md:text-left">
-      <h1 class="hero-name">Bahri Birer</h1>
-      <h2 class="hero-title">Yazılım Mühendisi</h2>
-      <p class="hero-desc">
-        Full-stack geliştirme, gerçek zamanlı sistemler ve modern web
-        teknolojileri üzerine çalışıyorum. Yazılım geliştirmede kullanıcı
-        deneyimini ön planda tutarak, güvenilir ve ölçeklenebilir çözümler
-        üretmeyi hedefliyorum. Kendimi sürekli geliştirmekten ve yeni
-        teknolojiler öğrenmekten keyif alıyorum.
-      </p>
-
-      <!-- Sosyal Linkler -->
-      <div class="flex gap-5 justify-content-center md:justify-content-start mt-5">
-        <a
-          href="https://github.com/bahribirer"
-          target="_blank"
-          class="social-icon"
-          aria-label="GitHub"
-        >
-          <i class="pi pi-github"></i>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/bahri-birer-02256a267//"
-          target="_blank"
-          class="social-icon"
-          aria-label="LinkedIn"
-        >
-          <i class="pi pi-linkedin"></i>
-        </a>
+    <div class="content-container">
+      <!-- Left: Content Card -->
+      <div class="hero-card fade-in">
+        <div class="badge-row">
+          <span class="status-badge">
+            <span class="pulse"></span> {{ t('home.status') }}
+          </span>
+        </div>
         
+        <h1 class="hero-name">Bahri Birer</h1>
+        <div class="hero-title-wrap">
+          <span class="title-accent"></span>
+          <h2 class="hero-title">{{ t('home.title') }}</h2>
+        </div>
+        
+        <p class="hero-desc" v-html="t('home.desc')"></p>
+
+        <div class="cta-row">
+          <Button :label="t('home.cta')" icon="pi pi-arrow-right" iconPos="right" @click="$router.push('/projects')" class="p-button-glow" />
+          <div class="social-links">
+            <a href="https://github.com/bahribirer" target="_blank" class="s-link" aria-label="GitHub">
+              <i class="pi pi-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/bahri-birer-02256a267//" target="_blank" class="s-link" aria-label="LinkedIn">
+              <i class="pi pi-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Visual / Profil -->
+      <div class="hero-visual fade-in-delayed">
+        <div class="image-orb">
+          <div class="orb-bg"></div>
+          <img src="@/assets/images/bahri.jpg" alt="Bahri Birer" class="hero-img" />
+          
+          <!-- Floating Tech Icons -->
+          <div class="tech-floater f-1"><i class="pi pi-vue"></i></div>
+          <div class="tech-floater f-2"><i class="pi pi-code"></i></div>
+          <div class="tech-floater f-3"><i class="pi pi-server"></i></div>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-// Fotoğrafın "src/assets/images/bahri.jpg" altında olduğundan emin ol
+import Button from 'primevue/button'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>
 
 <style scoped>
-/* ===== HERO BACKDROP: katmanlı renk + aurora + ince ızgara ===== */
-.home-hero {
+.home-neo {
   position: relative;
+  min-height: calc(100vh - 80px); /* Adjust for navbar if exists */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  min-height: 100vh;
-
-  /* ana degrade */
-  background:
-    radial-gradient(1200px 600px at -10% -20%, color-mix(in srgb, var(--brand, #6366f1) 12%, transparent), transparent 60%),
-    radial-gradient(900px 520px at 120% 10%, color-mix(in srgb, #42b883 18%, transparent), transparent 60%),
-    linear-gradient(135deg, #f9fafb, #e9efff);
+  padding: 2rem;
 }
 
-/* aurora bulutları */
-.home-hero::before,
-.home-hero::after {
-  content: '';
+/* ---- Aurora Background ---- */
+.aurora-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  filter: blur(80px);
+  opacity: 0.6;
+}
+.aurora {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
-  opacity: .55;
-  pointer-events: none;
-  animation: drift 18s ease-in-out infinite alternate;
+  animation: drift 20s infinite alternate ease-in-out;
 }
-.home-hero::before {
-  width: 360px; height: 360px;
-  background: color-mix(in srgb, #42b883 52%, transparent);
-  top: -70px; left: -80px;
-}
-.home-hero::after {
-  width: 420px; height: 420px;
-  background: color-mix(in srgb, var(--brand, #6366f1) 58%, transparent);
-  bottom: -100px; right: -100px;
+.aurora.a { width: 40vw; height: 40vw; background: #6366f1; top: -10%; left: -10%; }
+.aurora.b { width: 35vw; height: 35vw; background: #42b883; bottom: -5%; right: -5%; animation-delay: -5s; }
+.aurora.c { width: 30vw; height: 30vw; background: #ec4899; top: 40%; left: 30%; opacity: 0.4; animation-delay: -2s; }
+
+@keyframes drift {
+  0% { transform: translate(0, 0) scale(1.0); }
+  100% { transform: translate(10%, 15%) scale(1.1); }
 }
 
-/* ince ızgara dokusu (çok hafif) */
-.home-hero :global(.grid-overlay) { display:none; } /* opsiyonel */
-.home-hero::marker { content: none } /* safari bug guard */
-
-@keyframes drift { to { transform: translate3d(12px, -10px, 0); opacity:.65; } }
-@media (prefers-reduced-motion: reduce){
-  .home-hero::before, .home-hero::after { animation: none; }
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 1;
 }
 
-/* ===== PROFİL ===== */
-.profile-wrapper{
-  --ring: conic-gradient(from 0deg,
-      var(--brand, #6366f1),
-      #42b883,
-      var(--brand, #6366f1));
+/* ---- Layout ---- */
+.content-container {
   position: relative;
-  padding: 10px; border-radius: 50%;
-  background: transparent;
-  isolation: isolate; /* efektlerin taşmaması için */
-}
-.profile-wrapper::before{
-  /* animasyonlu gradient halka */
-  content:""; position:absolute; inset:0; border-radius:50%;
-  background: var(--ring);
-  filter: blur(0.5px);
-  animation: spin 18s linear infinite;
-  z-index: -1;
-}
-.profile-wrapper::after{
-  /* içe doğru cam etkisi */
-  content:""; position:absolute; inset:6px; border-radius:50%;
-  background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.55));
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.7);
-  z-index:-1;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.profile-img{
-  width: 16rem; height: 16rem;
-  border-radius:50%; object-fit: cover;
-  box-shadow: 0 16px 38px rgba(0,0,0,.18), 0 2px 0 rgba(255,255,255,.6) inset;
-  transition: transform .35s cubic-bezier(.22,.61,.36,1), box-shadow .35s ease;
-  will-change: transform;
-}
-.profile-wrapper:hover .profile-img{
-  transform: translateY(-2px) scale(1.015);
-  box-shadow: 0 22px 48px rgba(0,0,0,.22);
-}
-@media (min-width: 768px){
-  .profile-img{ width: 20rem; height: 20rem; }
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
 }
 
-/* ===== METİN ===== */
-.hero-name{
-  margin: 0 0 .35rem 0;
-  font-size: clamp(2.2rem, 4vw, 3rem);
-  font-weight: 900;
-  letter-spacing: .2px;
+/* ---- Content Card ---- */
+.hero-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 32px;
+  padding: 3.5rem;
+  box-shadow: 
+    0 24px 48px rgba(0, 0, 0, 0.06),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
+}
 
-  /* hareketli degrade metin */
-  background: linear-gradient(90deg,
-    var(--brand, #6366f1),
-    #42b883,
-    var(--brand, #6366f1));
-  background-size: 200% 100%;
-  -webkit-background-clip: text; background-clip: text;
+.badge-row { margin-bottom: 1.5rem; }
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 999px;
+  color: #4f46e5;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.pulse {
+  width: 8px; height: 8px;
+  background: #4f46e5;
+  border-radius: 50%;
+  box-shadow: 0 0 0 rgba(79, 70, 229, 0.4);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(79, 70, 229, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+}
+
+.hero-name {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 950;
+  line-height: 1.1;
+  margin: 0;
+  background: linear-gradient(135deg, #0f172a 30%, #4f46e5);
+  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shine 8s ease-in-out infinite alternate;
-}
-@keyframes shine { to { background-position: 100% 0; } }
-
-.hero-title{
-  display: inline-flex; align-items:center; gap:.5rem;
-  font-size: 1.1rem; font-weight: 800;
-  color: #0f172a; /* koyu metin */
-  margin-bottom: 1rem;
-
-  /* jel/pil görünümlü rozet */
-  padding: .35rem .7rem; border-radius: 999px;
-  background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.6));
-  border:1px solid color-mix(in srgb, var(--brand, #6366f1) 28%, #e5e7eb);
-  box-shadow: 0 8px 20px color-mix(in srgb, var(--brand, #6366f1) 18%, transparent), inset 0 1px 0 rgba(255,255,255,.8);
 }
 
-.hero-desc{
-  font-size: 1.05rem; line-height: 1.68; color: #374151;
-  max-width: 42rem; margin: 0 auto;
+.hero-title-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+.title-accent {
+  width: 40px; height: 4px;
+  background: #42b883;
+  border-radius: 2px;
+}
+.hero-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #374151;
+  letter-spacing: -0.02em;
+}
 
-  /* cam kart */
-  display: inline-block;
-  padding: .85rem 1rem; border-radius: 14px;
-  background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.55));
+.hero-desc {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #4b5563;
+  max-width: 500px;
+  margin-bottom: 2.5rem;
+}
+.hero-desc strong { color: #1f2937; }
+
+.cta-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.p-button-glow {
+  padding: 1rem 2rem !important;
+  border-radius: 16px !important;
+  background: #4f46e5 !important;
+  border: none !important;
+  font-weight: 700 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 8px 16px rgba(79, 70, 229, 0.25) !important;
+}
+.p-button-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.4) !important;
+}
+
+.social-links { display: flex; gap: 1rem; }
+.s-link {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: white;
   border: 1px solid #e5e7eb;
-  box-shadow: 0 10px 26px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.7);
-}
-
-/* ===== SOSYAL LİNKLER ===== */
-.social-icon{
-  --c: var(--brand, #6366f1);
-  width: 3rem; height: 3rem;
-  display: inline-grid; place-items: center;
   border-radius: 12px;
-  color: #0f172a; font-size: 1.35rem;
+  color: #374151;
+  font-size: 1.25rem;
   text-decoration: none;
-
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.7));
-  border: 1px solid color-mix(in srgb, var(--c) 28%, #e5e7eb);
-  box-shadow: 0 10px 22px color-mix(in srgb, var(--c) 16%, transparent), inset 0 1px 0 rgba(255,255,255,.8);
-  transition: transform .2s ease, box-shadow .2s ease, color .2s ease, border-color .2s ease;
+  transition: all 0.2s ease;
 }
-.social-icon:hover{
-  transform: translateY(-2px) scale(1.05);
-  border-color: color-mix(in srgb, var(--brand, #6366f1) 60%, #e5e7eb);
-  box-shadow: 0 16px 34px color-mix(in srgb, var(--brand, #6366f1) 22%, transparent);
-  color: var(--brand, #6366f1);
+.s-link:hover {
+  background: #f9fafb;
+  border-color: #6366f1;
+  color: #6366f1;
+  transform: scale(1.05);
 }
 
-/* spacing */
-@media (max-width: 768px){
-  .hero-desc{ margin-top: .6rem; }
+/* ---- Visual ---- */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.image-orb {
+  position: relative;
+  width: 320px; height: 320px;
+}
+.orb-bg {
+  position: absolute;
+  inset: -20px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(66, 184, 131, 0.2));
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  animation: morph 8s infinite alternate ease-in-out;
+}
+@keyframes morph {
+  0% { border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+.hero-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  position: relative;
+  z-index: 2;
+  border: 4px solid white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  animation: morph 8s infinite alternate ease-in-out;
+}
+
+.tech-floater {
+  position: absolute;
+  width: 54px; height: 54px;
+  background: white;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  z-index: 3;
+  animation: float 6s infinite ease-in-out;
+}
+.f-1 { color: #42b883; top: -10%; left: -10%; animation-delay: 0s; }
+.f-2 { color: #3776ab; bottom: 0%; right: -15%; animation-delay: -2s; }
+.f-3 { color: #6366f1; top: 50%; right: -20%; animation-delay: -4s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+/* ---- Entrance Animations ---- */
+.fade-in { animation: fadeIn 1s ease-out forwards; }
+.fade-in-delayed { opacity: 0; animation: fadeIn 1s ease-out 0.4s forwards; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .content-container { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+  .hero-card { padding: 2.5rem; }
+  .hero-desc { margin-left: auto; margin-right: auto; }
+  .cta-row { justify-content: center; flex-direction: column; gap: 1.5rem; }
+  .hero-title-wrap { justify-content: center; }
+  .hero-visual { grid-row: 1; }
 }
 </style>

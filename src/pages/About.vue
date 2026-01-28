@@ -2,297 +2,229 @@
   <div class="about-edu">
     <!-- Başlık -->
     <header class="hero">
-      <div class="hero-title">
-        <i class="pi pi-graduation-cap"></i>
-        <h1>Eğitim</h1>
+      <div class="hero-left">
+        <div class="hero-icon">
+          <i class="pi pi-book"></i>
+        </div>
+        <div>
+          <h1>{{ t('about.title') }}</h1>
+          <p>{{ t('about.subtitle') }}</p>
+        </div>
       </div>
-      <p class="hero-sub">Okul geçmişim — karta tıklayınca detay açılır.</p>
-      <span class="hero-blob"></span>
+      <span class="hero-glow"></span>
     </header>
 
-    <!-- Zaman Çizelgesi -->
-    <section ref="journeyEl" class="timeline" :class="{ inview: journeyInView }">
-      <div class="rail">
-        <div class="progress" :style="{ height: progressHeight + '%' }"></div>
-      </div>
-
-      <div class="items">
-        <article
-          v-for="(item, idx) in education"
-          :key="item.title"
-          class="milestone"
-          :data-key="item.key"
-          :class="{ reveal: revealed[idx] }"
-          @click="openDetail(item)"
-        >
-          <div class="dot">
-            <span class="dot-ring"></span>
-            <i :class="item.icon"></i>
-          </div>
-
-          <div class="card">
-            <div class="topline">
-              <Tag rounded :value="item.subtitle" />
+    <!-- Premium Kartlar (Timeline yerine Stacked Cards) -->
+    <section class="edu-stack">
+      <!-- Üniversite -->
+      <article class="edu-card" @click="toggle('uni')">
+        <div class="card-glass"></div>
+        <div class="card-content">
+          <div class="card-head">
+            <div class="school-icon uni">
+              <i class="pi pi-graduation-cap"></i>
             </div>
-            <h3 class="m-title">{{ item.title }}</h3>
+            <div class="school-info">
+              <h3>{{ t('about.uni.title') }}</h3>
+              <span class="school-meta">{{ t('about.uni.subtitle') }}</span>
+            </div>
+            <Button
+              icon="pi pi-angle-down"
+              text
+              rounded
+              class="toggle-btn"
+              :class="{ rotated: open === 'uni' }"
+            />
           </div>
-        </article>
-      </div>
-    </section>
+          <div class="card-body" v-show="open === 'uni'">
+            <div class="divider"></div>
+            <p>{{ t('about.uni.desc') }}</p>
+          </div>
+        </div>
+      </article>
 
-    <!-- Detay (mask tıklayınca kapanır) -->
-    <Dialog
-      v-model:visible="showDetail"
-      modal
-      :dismissableMask="true"
-      :closable="true"
-      :closeOnEscape="true"
-      :header="selectedItem?.title"
-      style="max-width: 720px"
-    >
-      <p class="text-700 m-0">{{ selectedItem?.fullDetail }}</p>
-    </Dialog>
+      <!-- Lise -->
+      <article class="edu-card" @click="toggle('hs')">
+        <div class="card-glass"></div>
+        <div class="card-content">
+          <div class="card-head">
+            <div class="school-icon hs">
+              <i class="pi pi-building"></i>
+            </div>
+            <div class="school-info">
+              <h3>{{ t('about.hs.title') }}</h3>
+              <span class="school-meta">{{ t('about.hs.subtitle') }}</span>
+            </div>
+            <Button
+              icon="pi pi-angle-down"
+              text
+              rounded
+              class="toggle-btn"
+              :class="{ rotated: open === 'hs' }"
+            />
+          </div>
+          <div class="card-body" v-show="open === 'hs'">
+            <div class="divider"></div>
+            <p>{{ t('about.hs.desc') }}</p>
+          </div>
+        </div>
+      </article>
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from 'vue'
-import Tag from 'primevue/tag'
-import Dialog from 'primevue/dialog'
+import { ref } from 'vue'
+import Button from 'primevue/button'
+import { useI18n } from 'vue-i18n'
 
-type TimelineItem = {
-  title: string
-  subtitle: string
-  fullDetail: string
-  icon: string
-  key: 'uni' | 'hs'
+const { t } = useI18n()
+
+// Accordion mantığı
+const open = ref<'uni' | 'hs' | null>('uni')
+
+function toggle(key: 'uni' | 'hs') {
+  open.value = open.value === key ? null : key
 }
-
-const education: TimelineItem[] = [
-  {
-    title: 'Yazılım Mühendisliği (Lisans) — Mezun',
-    subtitle: 'Atılım Üniversitesi • 2020 – 2025',
-    fullDetail:
-      'Atılım Üniversitesi Yazılım Mühendisliği bölümünden 2025 yılında mezun oldum (GNO 3.13, %100 İngilizce). Lisans boyunca algoritmalar, yazılım mimarisi, web teknolojileri ve gerçek zamanlı sistemler üzerinde yoğunlaştım. Takım projelerinde Agile/Scrum süreçleri, Git akışları ve code review kültürüyle üretim kalitesine odaklandım.',
-    icon: 'pi pi-graduation-cap',
-    key: 'uni'
-  },
-  {
-    title: 'Samsun Anadolu Lisesi',
-    subtitle: 'Lise • 2016 – 2020',
-    fullDetail:
-      'Matematik ve temel bilimler odaklı güçlü bir altyapı edindim. Disiplinli çalışma, analitik düşünme ve problem çözme alışkanlıklarımın temelini bu dönemde oluşturdum.',
-    icon: 'pi pi-book',
-    key: 'hs'
-  }
-]
-
-/* Dialog state */
-const showDetail = ref(false)
-const selectedItem = ref<TimelineItem | null>(null)
-function openDetail(item: TimelineItem) {
-  selectedItem.value = item
-  showDetail.value = true
-}
-
-/* Timeline animasyonları */
-const journeyEl = ref<HTMLElement | null>(null)
-const journeyInView = ref(false)
-const progressHeight = ref(0)         // 0 → 100
-const revealed = ref<boolean[]>(education.map(() => false))
-
-onMounted(async () => {
-  await nextTick()
-  const container = journeyEl.value
-  if (!container) return
-
-  // Ray görünür olunca %0 → %100
-  const ioContainer = new IntersectionObserver(
-    (entries) => {
-      for (const e of entries) {
-        if (!e.isIntersecting) continue
-        journeyInView.value = true
-        const start = performance.now()
-        const dur = 1000
-        const step = (now: number) => {
-          const t = Math.min(1, (now - start) / dur)
-          progressHeight.value = Math.round((1 - Math.pow(1 - t, 3)) * 100) // easeOutCubic
-          if (t < 1) requestAnimationFrame(step)
-        }
-        requestAnimationFrame(step)
-        ioContainer.unobserve(e.target)
-      }
-    },
-    { threshold: 0.25 }
-  )
-  ioContainer.observe(container)
-
-  // Kartlar tek tek açılma animasyonu
-  const milestones = container.querySelectorAll<HTMLElement>('.milestone')
-  const ioItems = new IntersectionObserver(
-    (entries) => {
-      for (const e of entries) {
-        if (!e.isIntersecting) continue
-        const idx = [...milestones].indexOf(e.target as HTMLElement)
-        if (idx >= 0) revealed.value[idx] = true
-        ioItems.unobserve(e.target)
-      }
-    },
-    { threshold: 0.35, rootMargin: '0px 0px -10% 0px' }
-  )
-  milestones.forEach((m) => ioItems.observe(m))
-})
 </script>
 
 <style scoped>
-/* ---------- Global palette & energy ---------- */
+/* ---------- Layout & Energy ---------- */
 .about-edu {
-  --t-uni: #3b82f6;   /* mavi */
-  --t-hs:  #f59e0b;   /* amber */
-  --bg-grid: radial-gradient(1px 1px at 1px 1px, rgba(255,255,255,.08) 0, transparent 0);
-
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 1.25rem;
+  padding: 1.5rem 1rem;
   display: grid;
-  gap: 1.25rem;
-
-  /* Daha renkli, canlı bir arka plan */
-  background:
-    radial-gradient(1200px 600px at -10% -20%, color-mix(in srgb, var(--primary-200) 40%, transparent), transparent 60%),
-    radial-gradient(900px 520px at 120% 10%, color-mix(in srgb, var(--primary-400) 20%, transparent), transparent 60%),
-    linear-gradient(180deg, var(--surface-0), var(--surface-card));
-  position: relative;
-}
-.about-edu::before {
-  /* Hafif grid dokusu */
-  content:""; position:absolute; inset:0; pointer-events:none; border-radius:16px;
-  background-image: var(--bg-grid);
-  background-size: 14px 14px;
-  opacity: .5;
+  gap: 2rem;
 }
 
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  border-radius: 18px;
-  padding: 1.1rem 1.25rem;
-  overflow: hidden;
-
-  /* gradient border efekti */
-  --gb: linear-gradient(135deg, color-mix(in srgb, var(--primary-300) 60%, transparent), transparent 60%);
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--primary-50) 75%, var(--surface-card)), var(--surface-card));
-  box-shadow: 0 14px 34px rgba(0,0,0,.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--surface-border);
 }
-.hero::before {
-  content:""; position:absolute; inset:0; padding:1px; border-radius:20px;
-  background: var(--gb);
-  -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-.hero-title { display: flex; align-items: center; gap: .65rem; }
-.hero-title i { color: var(--primary-600); filter: drop-shadow(0 6px 12px color-mix(in srgb, var(--primary-400) 40%, transparent)); }
-.hero-title h1 { margin: 0; font-size: 1.7rem; font-weight: 900; letter-spacing: .2px; }
-.hero-sub { margin: .35rem 0 0; color: var(--text-color-secondary); }
-.hero-blob {
-  position: absolute; right: -110px; top: -120px; width: 340px; height: 340px; border-radius: 50%;
-  background:
-    radial-gradient(closest-side, color-mix(in srgb, var(--primary-300) 40%, transparent), transparent 70%),
-    conic-gradient(from 200deg, color-mix(in srgb, var(--primary-200) 50%, transparent), transparent 60%);
-  filter: blur(18px); opacity: .65; pointer-events: none;
-}
-
-/* ---------- Timeline ---------- */
-.timeline { position: relative; display: grid; grid-template-columns: 58px 1fr; gap: 1rem; }
-.rail {
-  position: relative; margin-left: 24px;
-  width: 10px; border-radius: 999px;
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--primary-100) 50%, var(--surface-200)), var(--surface-300));
-  border: 1px solid color-mix(in srgb, var(--primary-300) 50%, var(--surface-border));
-  overflow: hidden;
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--primary-200) 30%, transparent);
-}
-.progress {
-  position: absolute; left: 0; bottom: 0; width: 100%; height: 0%;
-  background:
-    linear-gradient(180deg, var(--primary-400), var(--primary-600));
-  box-shadow: 0 0 20px color-mix(in srgb, var(--primary-500) 50%, transparent);
-  transition: height .9s cubic-bezier(.22,.61,.36,1);
-}
-.items { display: grid; gap: 1rem; }
-
-/* ---------- Milestone (tint by key) ---------- */
-.milestone {
-  --tint: var(--primary-500);
+.hero-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   position: relative;
-  display: grid; grid-template-columns: 58px 1fr; gap: .75rem;
-  align-items: flex-start;
-  cursor: pointer;
-  opacity: 0; transform: translateY(10px);
-  transition: opacity .35s ease, transform .35s ease, box-shadow .15s ease;
+  z-index: 2;
 }
-.milestone[data-key="uni"] { --tint: var(--t-uni); }
-.milestone[data-key="hs"]  { --tint: var(--t-hs); }
-
-.milestone.reveal { opacity: 1; transform: translateY(0); }
-
-.dot {
-  position: relative; width: 58px; height: 58px; display: grid; place-items: center;
-}
-.dot-ring {
-  position:absolute; inset:6px; border-radius:16px;
-  background: conic-gradient(from 180deg, color-mix(in srgb, var(--tint) 70%, transparent), transparent 60%);
-  filter: blur(6px); opacity:.7;
-}
-.dot i {
-  width: 44px; height: 44px; display: grid; place-items: center;
-  border-radius: 14px;
-  color: var(--tint);
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--tint) 18%, transparent), transparent 70%);
-  border: 1px solid color-mix(in srgb, var(--tint) 45%, var(--surface-border));
-  font-size: 1rem;
-  box-shadow: 0 6px 18px color-mix(in srgb, var(--tint) 18%, transparent);
-}
-
-.card {
-  border: 1px solid color-mix(in srgb, var(--tint) 45%, var(--surface-border));
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--tint) 10%, transparent), transparent 70%),
-    var(--surface-card);
+.hero-icon {
+  width: 52px; height: 52px;
   border-radius: 16px;
-  padding: .9rem;
-  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .2s ease;
-  box-shadow: 0 10px 26px color-mix(in srgb, var(--tint) 10%, transparent);
+  display: grid; place-items: center;
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
-.milestone:hover .card {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 36px color-mix(in srgb, var(--tint) 18%, transparent);
-  border-color: color-mix(in srgb, var(--tint) 70%, var(--surface-border));
+.hero-icon i { font-size: 1.4rem; color: var(--primary-color); }
+.hero h1 { margin: 0; font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px; }
+.hero p { margin: 0.25rem 0 0; color: var(--text-color-secondary); }
+.hero-glow {
+  position: absolute;
+  top: -50%; left: -10%;
+  width: 200px; height: 100px;
+  background: radial-gradient(circle, var(--primary-200) 0%, transparent 70%);
+  filter: blur(40px);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
 }
-.topline { margin-bottom: .4rem; }
-/* Tag'i tıntla */
-.milestone :deep(.p-tag) {
-  border: 1px solid color-mix(in srgb, var(--tint) 45%, var(--surface-border));
-  background: color-mix(in srgb, var(--tint) 16%, var(--surface-card));
-  color: color-mix(in srgb, var(--tint) 85%, black);
-  font-weight: 700;
-}
-.m-title { margin: 0; font-size: 1.08rem; font-weight: 900; }
 
-/* ---------- Dialog ---------- */
-:deep(.p-dialog .p-dialog-header) { font-weight: 900; }
-:deep(.p-dialog .p-dialog-content) { line-height: 1.6; }
+/* ---------- Stacked Cards (Accordion) ---------- */
+.edu-stack {
+  display: grid;
+  gap: 1.25rem;
+}
 
-/* ---------- Responsive ---------- */
-@media (max-width: 820px) {
-  .timeline { grid-template-columns: 46px 1fr; }
-  .rail { margin-left: 18px; width: 8px; }
-  .dot { width: 46px; height: 46px; }
-  .dot i { width: 36px; height: 36px; border-radius: 10px; font-size: .9rem; }
-  .hero-title h1 { font-size: 1.55rem; }
+.edu-card {
+  position: relative;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  /* Hafif yukarı kalkma efekti */
+}
+.edu-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+}
+
+/* Glass Layer */
+.card-glass {
+  position: absolute; inset: 0;
+  background: linear-gradient(145deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 100%);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+  border: 1px solid rgba(255,255,255,0.5);
+  transition: all 0.3s ease;
+}
+.edu-card:hover .card-glass {
+  background: linear-gradient(145deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.3) 100%);
+}
+
+/* Content */
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 1.25rem;
+}
+
+/* Head */
+.card-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+}
+.school-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  display: grid; place-items: center;
+  font-size: 1.2rem;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.school-icon.uni { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.school-icon.hs  { background: linear-gradient(135deg, #f59e0b, #d97706); }
+
+.school-info h3 { margin: 0; font-size: 1.1rem; font-weight: 700; color: #1f2937; }
+.school-meta { font-size: 0.9rem; color: #6b7280; font-weight: 500; }
+
+.toggle-btn {
+  color: #9ca3af;
+  transition: transform 0.3s ease;
+}
+.toggle-btn.rotated {
+  transform: rotate(180deg);
+  color: var(--primary-500);
+}
+
+/* Body (Accordion Content) */
+.card-body {
+  margin-top: 1rem;
+  animation: slideDown 0.3s ease forwards;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+  margin-bottom: 1rem;
+}
+
+.card-body p {
+  margin: 0;
+  line-height: 1.6;
+  color: #4b5563;
+  font-size: 0.95rem;
 }
 </style>

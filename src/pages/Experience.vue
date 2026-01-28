@@ -3,8 +3,8 @@
     <!-- Başlık -->
     <header class="exp-top text-center">
       <i class="pi pi-briefcase" style="font-size:3rem; color: var(--brand)"></i>
-      <h2 class="title">Deneyimler</h2>
-      <p class="subtitle">Profesyonel iş deneyimlerim boyunca edindiğim tecrübeler:</p>
+      <h2 class="title">{{ t('experience.title') }}</h2>
+      <p class="subtitle">{{ t('experience.subtitle') }}</p>
     </header>
 
     <!-- HAVELSAN -->
@@ -14,7 +14,7 @@
         <div class="exp-head-text">
           <h3 class="exp-company">HAVELSAN</h3>
           <div class="exp-meta">
-            <span class="role">Uzun Dönem Stajyer / Ortak Eğitim Programı</span>
+            <span class="role">{{ t('experience.role.long_term') }}</span>
             <span class="dot">•</span>
             <span class="where">Ankara</span>
             <span class="dot">•</span>
@@ -23,39 +23,51 @@
         </div>
       </div>
 
-      <p class="exp-summary">
-        Kurumsal yazılım geliştirme süreçlerinde görev aldım. TypeScript kullanarak modül geliştirmelerine
-        katkı verdim; ekip iş akışlarına uyum sağlayarak kurumsal kod standartlarını benimsedim. Bitirme projem
-        <strong>ServR</strong> kapsamında gerçek zamanlı sistemler ve test otomasyon ortamları üzerinde çalıştım.
-      </p>
+      <p class="exp-summary" v-html="t('experience.havelsan.summary')"></p>
 
       <div class="exp-columns">
         <div class="exp-col">
-          <h4 class="col-title">Sorumluluklar</h4>
+          <h4 class="col-title">{{ t('experience.responsibilities') }}</h4>
           <ul class="bullets">
-            <li>TypeScript ve YAML yapısı beraber ön yüz tarafında ise Vue.js ile kurumsal modüllerde ekran ve komponent geliştirme, state ve form yönetimi.</li>
-            <li>TypeScript / JavaScript tabanlı servislerde endpoint ekleme, DTO/mapper düzenlemeleri ve testler.</li>
-            <li>SQL sorgu düzenlemeleri ve <span class="nowrap">MongoDB</span> üzerinde temel optimizasyonlar.</li>
-            <li>Git akışıyla çalışma (branch stratejisi, code review) ve CI/CD sürecine entegrasyon.</li>
+            <li v-for="(item, i) in tm('experience.havelsan.res_list')" :key="i" v-html="rt(item)"></li>
           </ul>
         </div>
         <div class="exp-col">
-          <h4 class="col-title">Öne Çıkanlar</h4>
+          <h4 class="col-title">{{ t('experience.highlights') }}</h4>
           <ul class="bullets">
-            <li><strong>ServR</strong> ile frontend ekiplerinin <em>backend’siz</em> test yapabilmesini sağlayan
-                ortamların kurgulanması (REST, GraphQL, WebSocket / Socket.IO).</li>
-            <li>Takım içi sprint seremonilerine katılım; görev takibi ve raporlama.</li>
-            <li>Kurumsal kod standartlarına uygun, okunabilir ve test edilebilir kod üretimi.</li>
+            <li v-for="(item, i) in tm('experience.havelsan.high_list')" :key="i" v-html="rt(item)"></li>
           </ul>
         </div>
       </div>
 
-      <div class="stack">
-        <span class="stack-title">Kullanılan Teknolojiler:</span>
-        <div class="chips">
-          <Chip label="TypeScript" /><Chip label="JavaScript" /><Chip label="Vue.js" />
-          <Chip label="MongoDB" /><Chip label="REST API" /><Chip label="GraphQL" />
-          <Chip label="WebSocket" /><Chip label="Socket.IO" /><Chip label="GitLab CI/CD" />
+      <!-- PREMIUM TECH STACK -->
+      <div class="tech-grid">
+        <span class="grid-label">{{ t('experience.tech_stack') }}</span>
+        <div class="grid-items">
+          <div class="tech-card js">
+            <i class="pi pi-code"></i>
+            <span>TypeScript</span>
+          </div>
+          <div class="tech-card vue">
+            <i class="pi pi-desktop"></i>
+            <span>Vue.js</span>
+          </div>
+          <div class="tech-card db">
+            <i class="pi pi-database"></i>
+            <span>MongoDB</span>
+          </div>
+          <div class="tech-card api">
+            <i class="pi pi-cloud"></i>
+            <span>GraphQL</span>
+          </div>
+          <div class="tech-card rt">
+            <i class="pi pi-bolt"></i>
+            <span>Socket.IO</span>
+          </div>
+          <div class="tech-card ops">
+            <i class="pi pi-cog"></i>
+            <span>CI/CD</span>
+          </div>
         </div>
       </div>
     </section>
@@ -67,40 +79,50 @@
         <div class="exp-head-text">
           <h3 class="exp-company">VBT Software</h3>
           <div class="exp-meta">
-            <span class="role">Stajyer</span>
+            <span class="role">{{ t('experience.role.intern') }}</span>
             <span class="dot">•</span>
             <span class="when">05.07.2023 – 28.07.2023</span>
           </div>
         </div>
       </div>
 
-      <p class="exp-summary">
-        Java ve Angular teknolojileriyle modül geliştirme süreçlerine destek verdim. Profesyonel çalışma ortamında
-        ekip içi iş akışlarını, code review ve görev planlaması gibi süreçleri deneyimledim.
-      </p>
+      <p class="exp-summary" v-html="t('experience.vbt.summary')"></p>
 
       <div class="exp-columns">
         <div class="exp-col">
-          <h4 class="col-title">Sorumluluklar</h4>
+          <h4 class="col-title">{{ t('experience.responsibilities') }}</h4>
           <ul class="bullets">
-            <li>Angular ile sayfa/komponent oluşturma, servis entegrasyonları ve temel validasyonlar.</li>
-            <li>Java tarafında basit servis fonksiyonları, model/DTO düzenlemeleri.</li>
-            <li>SQL sorgularıyla veri okuma/yazma ve raporlama ihtiyaçlarının karşılanması.</li>
+            <li v-for="(item, i) in tm('experience.vbt.res_list')" :key="i" v-html="rt(item)"></li>
           </ul>
         </div>
         <div class="exp-col">
-          <h4 class="col-title">Öğrendiklerim</h4>
+          <h4 class="col-title">{{ t('experience.learnings') }}</h4>
           <ul class="bullets">
-            <li>Kurumsal Git akışları, issue takibi ve code review disiplinleri.</li>
-            <li>Frontend–Backend entegrasyon sürecinde iş birliği ve iletişim pratikleri.</li>
+            <li v-for="(item, i) in tm('experience.vbt.learn_list')" :key="i" v-html="rt(item)"></li>
           </ul>
         </div>
       </div>
 
-      <div class="stack">
-        <span class="stack-title">Kullanılan Teknolojiler:</span>
-        <div class="chips">
-          <Chip label="Java" /><Chip label="Angular" /><Chip label="SQL" /><Chip label="Git" />
+      <!-- PREMIUM TECH STACK -->
+      <div class="tech-grid">
+        <span class="grid-label">{{ t('experience.tech_stack') }}</span>
+        <div class="grid-items">
+          <div class="tech-card java">
+            <i class="pi pi-box"></i>
+            <span>Java</span>
+          </div>
+          <div class="tech-card ang">
+            <i class="pi pi-compass"></i>
+            <span>Angular</span>
+          </div>
+          <div class="tech-card db">
+            <i class="pi pi-database"></i>
+            <span>SQL</span>
+          </div>
+          <div class="tech-card ops">
+            <i class="pi pi-github"></i>
+            <span>Git</span>
+          </div>
         </div>
       </div>
     </section>
@@ -108,7 +130,9 @@
 </template>
 
 <script setup lang="ts">
-import Chip from 'primevue/chip'
+import { useI18n } from 'vue-i18n'
+
+const { t, tm, rt } = useI18n()
 </script>
 
 <style scoped>
@@ -129,7 +153,7 @@ import Chip from 'primevue/chip'
   margin: 0;
 }
 
-/* Section shell (kart değil!) */
+/* Section shell */
 .exp-section {
   background: #fff;
   border-left: 6px solid var(--brand, #42b883);
@@ -191,20 +215,49 @@ import Chip from 'primevue/chip'
 }
 .bullets li { margin-bottom: 0.35rem; }
 
-/* Tech stack chips */
-.stack {
-  margin-top: 1rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  flex-wrap: wrap;
+/* TECH GRID (PREMIUM UI) */
+.tech-grid {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed var(--surface-border);
 }
-.stack-title {
-  font-weight: 700;
-  color: #374151;
-  margin-top: 0.25rem;
+.grid-label {
+  display: block; font-size: 0.9rem; font-weight: 700; color: #9ca3af;
+  margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;
 }
-.chips :deep(.p-chip) { font-weight: 600; }
+.grid-items {
+  display: flex; gap: 0.75rem; flex-wrap: wrap;
+}
+
+.tech-card {
+  --tint: #64748b;
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 12px;
+  font-weight: 600; font-size: 0.9rem;
+  background: color-mix(in srgb, var(--tint) 8%, white);
+  color: var(--tint);
+  border: 1px solid color-mix(in srgb, var(--tint) 20%, transparent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+/* Specific colors */
+.tech-card.js   { --tint: #3b82f6; } /* TypeScript Blue */
+.tech-card.vue  { --tint: #42b883; } /* Vue Green */
+.tech-card.db   { --tint: #059669; } /* Emerald */
+.tech-card.api  { --tint: #db2777; } /* Pink */
+.tech-card.rt   { --tint: #f59e0b; } /* Amber */
+.tech-card.ops  { --tint: #6366f1; } /* Indigo */
+.tech-card.java { --tint: #ea580c; } /* Orange */
+.tech-card.ang  { --tint: #dc2626; } /* Red */
+
+.tech-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--tint) 25%, transparent);
+  background: white;
+}
+.tech-card i { font-size: 1rem; opacity: 0.85; }
 
 @media (min-width: 768px) {
   .exp-columns { grid-template-columns: 1fr 1fr; }

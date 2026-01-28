@@ -12,20 +12,24 @@
 import { ref, watch } from 'vue'
 import Sidebar from 'primevue/sidebar'
 
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
 const props = defineProps<{ open: boolean }>()
 const emit = defineEmits(['update:open'])
 const visible = ref(props.open)
+const { t } = useI18n()
 
 watch(() => props.open, v => visible.value = v)
 watch(visible, v => emit('update:open', v))
 
-const items = [
-  { label: 'Ana Sayfa', to: { name: 'home' } },
-  { label: 'Hakkımda', to: { name: 'about' } },
-  { label: 'Yetenekler', to: { name: 'skills' } },
-  { label: 'Deneyim', to: { name: 'experience' } },
-  { label: 'Projeler', to: { name: 'projects' } },
-  { label: 'Sertifikalar', to: { name: 'certificates' } },
-  { label: 'İletişim', to: { name: 'contact' } },
-]
+const items = computed(() => [
+  { label: t('nav.home'), to: { name: 'home' } },
+  { label: t('nav.about'), to: { name: 'about' } },
+  { label: t('nav.skills'), to: { name: 'skills' } },
+  { label: t('nav.experience'), to: { name: 'experience' } },
+  { label: t('nav.projects'), to: { name: 'projects' } },
+  { label: t('nav.certificates'), to: { name: 'certificates' } },
+  { label: t('nav.contact'), to: { name: 'contact' } },
+])
 </script>
