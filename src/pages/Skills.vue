@@ -68,7 +68,7 @@
         :key="grp.id"
         class="group-card"
         :data-cat="grp.name"
-        :data-key="slug(grp.name)"
+        :data-key="grp.key"
       >
         <div class="group-head">
           <div class="left">
@@ -148,10 +148,11 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 type Skill = { name: string; level: number }
-type Category = { name: string; icon: string; description: string; skills: Skill[] }
+type Category = { id: string; name: string; icon: string; description: string; skills: Skill[] }
 
 const skillCategories = computed<Category[]>(() => [
   {
+    id: 'frontend',
     name: t('skills.cats.frontend'),
     icon: 'pi pi-desktop',
     description: t('skills.cats.frontend_desc'),
@@ -163,6 +164,7 @@ const skillCategories = computed<Category[]>(() => [
     ]
   },
   {
+    id: 'backend',
     name: t('skills.cats.backend'),
     icon: 'pi pi-server',
     description: t('skills.cats.backend_desc'),
@@ -175,6 +177,7 @@ const skillCategories = computed<Category[]>(() => [
     ]
   },
   {
+    id: 'database',
     name: t('skills.cats.database'),
     icon: 'pi pi-database',
     description: t('skills.cats.database_desc'),
@@ -185,6 +188,7 @@ const skillCategories = computed<Category[]>(() => [
     ]
   },
   {
+    id: 'devops',
     name: t('skills.cats.devops'),
     icon: 'pi pi-cog',
     description: t('skills.cats.devops_desc'),
@@ -198,6 +202,7 @@ const skillCategories = computed<Category[]>(() => [
     ]
   },
   {
+    id: 'seo',
     name: t('skills.cats.seo'),
     icon: 'pi pi-chart-line',
     description: t('skills.cats.seo_desc'),
@@ -209,6 +214,7 @@ const skillCategories = computed<Category[]>(() => [
     ]
   },
   {
+    id: 'langs',
     name: t('skills.cats.langs'),
     icon: 'pi pi-code',
     description: t('skills.cats.langs_desc'),
@@ -242,13 +248,14 @@ const toPct = (lvl: number) => Math.round((lvl / 5) * 100)
 const flatSkills = computed(() =>
   skillCategories.value.flatMap(cat =>
     cat.skills.map((s, i) => ({
-      id: `${slug(cat.name)}-${i}-${slug(s.name)}`,
+      id: `${cat.id}-${i}-${slug(s.name)}`,
+      catId: cat.id,
       category: cat.name,
-      description: skillCategories.value.find(c => c.name === cat.name)?.description ?? '',
+      description: skillCategories.value.find(c => c.id === cat.id)?.description ?? '',
       name: s.name,
       level: s.level,
       percent: toPct(s.level),
-      icon: skillCategories.value.find(c => c.name === cat.name)?.icon ?? 'pi pi-tag'
+      icon: skillCategories.value.find(c => c.id === cat.id)?.icon ?? 'pi pi-tag'
     }))
   )
 )
@@ -293,6 +300,7 @@ const filteredByQuery = computed(() => {
 
 type Grouped = {
   id: string
+  key: string
   name: string
   description: string
   icon: string
@@ -304,9 +312,10 @@ const groupedCats = computed<Grouped[]>(() => {
   // Kategorileri topla
   const byCat = new Map<string, Grouped>()
   for (const s of filteredByQuery.value) {
-    if (!byCat.has(s.category)) {
-      byCat.set(s.category, {
-        id: `cat-${slug(s.category)}`,
+    if (!byCat.has(s.catId)) {
+      byCat.set(s.catId, {
+        id: `cat-${s.catId}`,
+        key: s.catId,
         name: s.category,
         description: s.description,
         icon: s.icon,
@@ -314,7 +323,7 @@ const groupedCats = computed<Grouped[]>(() => {
         skills: []
       })
     }
-    byCat.get(s.category)!.skills.push({ id: s.id, name: s.name, percent: s.percent })
+    byCat.get(s.catId)!.skills.push({ id: s.id, name: s.name, percent: s.percent })
   }
 
   // Boş olmayan kategoriler
@@ -392,7 +401,7 @@ function observeNew() {
 onMounted(async () => {
   // Başlangıçları 0 yap
   for (const s of flatSkills.value) progress.value[s.id] = 0
-  for (const c of skillCategories.value) donut.value[`cat-${slug(c.name)}`] = 0
+  for (const c of skillCategories.value) donut.value[`cat-${c.id}`] = 0
 
   io = new IntersectionObserver(entries => {
     for (const e of entries) {
@@ -512,13 +521,12 @@ watch([q, sortKey, groupedCats], () => observeNew(), { deep: true })
 }
 
 /* Kategori anahtarlarını daha sağlam yönetmek için id veya slug kullanacağız */
-.group-card[data-key="frontend"]            { --tint: var(--c-frontend); }
-.group-card[data-key="backend"]             { --tint: var(--c-backend); }
-.group-card[data-key="database"]            { --tint: var(--c-db); }
-.group-card[data-key="devops-tools"]        { --tint: var(--c-devops); }
-.group-card[data-key="seo-dijital-strateji"] { --tint: #f59e0b; }
-.group-card[data-key="programming-languages"] { --tint: var(--c-langs); }
-.group-card[data-key="programlama-dilleri"] { --tint: var(--c-langs); }
+.group-card[data-key="frontend"] { --tint: var(--c-frontend); }
+.group-card[data-key="backend"]  { --tint: var(--c-backend); }
+.group-card[data-key="database"] { --tint: var(--c-db); }
+.group-card[data-key="devops"]   { --tint: var(--c-devops); }
+.group-card[data-key="seo"]      { --tint: #f59e0b; }
+.group-card[data-key="langs"]    { --tint: var(--c-langs); }
 
 .group-head {
   display: grid;

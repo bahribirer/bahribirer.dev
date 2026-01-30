@@ -3,9 +3,7 @@
     <AppHeader @toggle-sidebar="sidebarOpen = true" />
     <AppSidebar v-model:open="sidebarOpen" />
     <main class="flex-1">
-      <div class="p-3 md:p-4 lg:p-6">
-        <RouterView />
-      </div>
+      <RouterView />
     </main>
     <AppFooter />
   </div>

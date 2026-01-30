@@ -1,230 +1,222 @@
 <template>
-  <div class="about-edu">
-    <!-- Başlık -->
-    <header class="hero">
-      <div class="hero-left">
-        <div class="hero-icon">
-          <i class="pi pi-book"></i>
+  <div class="about-page">
+    <!-- Modern Hero Header -->
+    <header class="page-header">
+      <div class="header-content">
+        <div class="header-badge">
+          <i class="pi pi-user"></i>
         </div>
-        <div>
-          <h1>{{ t('about.title') }}</h1>
-          <p>{{ t('about.subtitle') }}</p>
-        </div>
+        <h1 class="header-title">{{ t('about.title') }}</h1>
+        <p class="header-subtitle">{{ t('about.subtitle') }}</p>
       </div>
-      <span class="hero-glow"></span>
     </header>
 
-    <!-- Premium Kartlar (Timeline yerine Stacked Cards) -->
-    <section class="edu-stack">
+    <!-- Main Content Container -->
+    <main class="content-container">
+      
       <!-- Üniversite -->
-      <article class="edu-card" @click="toggle('uni')">
-        <div class="card-glass"></div>
-        <div class="card-content">
+      <section class="edu-section">
+        <div class="section-card">
           <div class="card-head">
-            <div class="school-icon uni">
+            <div class="icon-box uni">
               <i class="pi pi-graduation-cap"></i>
             </div>
-            <div class="school-info">
-              <h3>{{ t('about.uni.title') }}</h3>
+            <div class="head-info">
+              <h2 class="school-title">{{ t('about.uni.title') }}</h2>
               <span class="school-meta">{{ t('about.uni.subtitle') }}</span>
             </div>
-            <Button
-              icon="pi pi-angle-down"
-              text
-              rounded
-              class="toggle-btn"
-              :class="{ rotated: open === 'uni' }"
-            />
           </div>
-          <div class="card-body" v-show="open === 'uni'">
-            <div class="divider"></div>
-            <p>{{ t('about.uni.desc') }}</p>
+          
+          <div class="card-body">
+            <p class="description">{{ t('about.uni.desc') }}</p>
           </div>
         </div>
-      </article>
+      </section>
 
       <!-- Lise -->
-      <article class="edu-card" @click="toggle('hs')">
-        <div class="card-glass"></div>
-        <div class="card-content">
+      <section class="edu-section">
+         <div class="section-card">
           <div class="card-head">
-            <div class="school-icon hs">
+            <div class="icon-box hs">
               <i class="pi pi-building"></i>
             </div>
-            <div class="school-info">
-              <h3>{{ t('about.hs.title') }}</h3>
+            <div class="head-info">
+              <h2 class="school-title">{{ t('about.hs.title') }}</h2>
               <span class="school-meta">{{ t('about.hs.subtitle') }}</span>
             </div>
-            <Button
-              icon="pi pi-angle-down"
-              text
-              rounded
-              class="toggle-btn"
-              :class="{ rotated: open === 'hs' }"
-            />
           </div>
-          <div class="card-body" v-show="open === 'hs'">
-            <div class="divider"></div>
-            <p>{{ t('about.hs.desc') }}</p>
+          
+          <div class="card-body">
+            <p class="description">{{ t('about.hs.desc') }}</p>
           </div>
         </div>
-      </article>
-    </section>
+      </section>
+
+    </main>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import Button from 'primevue/button'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
-
-// Accordion mantığı
-const open = ref<'uni' | 'hs' | null>('uni')
-
-function toggle(key: 'uni' | 'hs') {
-  open.value = open.value === key ? null : key
-}
 </script>
 
 <style scoped>
-/* ---------- Layout & Energy ---------- */
-.about-edu {
-  max-width: 800px;
+/* Page Layout */
+.about-page {
+  max-width: 900px;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: 2rem 1.5rem 5rem;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+}
+
+/* Modern Header */
+.page-header {
+  margin-bottom: 3rem;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, var(--surface-card), var(--surface-0));
+  border: 1px solid var(--surface-border);
+  border-radius: 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.page-header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--primary-400), var(--primary-600));
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-badge {
+  width: 60px;
+  height: 60px;
+  background: color-mix(in srgb, var(--primary-500) 10%, transparent);
+  color: var(--primary-600);
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+.header-badge i { font-size: 1.75rem; }
+
+.header-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: -1px;
+  color: var(--text-color);
+}
+
+.header-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-color-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Content Container */
+.content-container {
   display: grid;
   gap: 2rem;
 }
 
-/* ---------- Hero ---------- */
-.hero {
-  position: relative;
+/* Section Cards */
+.section-card {
+  background: var(--surface-card);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+/* Card Header */
+.card-head {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1rem 0;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--surface-border);
 }
-.hero-left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  position: relative;
-  z-index: 2;
-}
-.hero-icon {
-  width: 52px; height: 52px;
-  border-radius: 16px;
-  display: grid; place-items: center;
-  background: var(--surface-card);
-  border: 1px solid var(--surface-border);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-.hero-icon i { font-size: 1.4rem; color: var(--primary-color); }
-.hero h1 { margin: 0; font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px; }
-.hero p { margin: 0.25rem 0 0; color: var(--text-color-secondary); }
-.hero-glow {
-  position: absolute;
-  top: -50%; left: -10%;
-  width: 200px; height: 100px;
-  background: radial-gradient(circle, var(--primary-200) 0%, transparent 70%);
-  filter: blur(40px);
-  opacity: 0.4;
-  pointer-events: none;
-  z-index: 1;
-}
 
-/* ---------- Stacked Cards (Accordion) ---------- */
-.edu-stack {
-  display: grid;
-  gap: 1.25rem;
-}
-
-.edu-card {
-  position: relative;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  overflow: hidden;
-  /* Hafif yukarı kalkma efekti */
-}
-.edu-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.06);
-}
-
-/* Glass Layer */
-.card-glass {
-  position: absolute; inset: 0;
-  background: linear-gradient(145deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 100%);
-  backdrop-filter: blur(10px);
-  z-index: 1;
-  border: 1px solid rgba(255,255,255,0.5);
-  transition: all 0.3s ease;
-}
-.edu-card:hover .card-glass {
-  background: linear-gradient(145deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.3) 100%);
-}
-
-/* Content */
-.card-content {
-  position: relative;
-  z-index: 2;
-  padding: 1.25rem;
-}
-
-/* Head */
-.card-head {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 1rem;
-  align-items: center;
-}
-.school-icon {
-  width: 48px; height: 48px;
+.icon-box {
+  width: 56px;
+  height: 56px;
   border-radius: 14px;
-  display: grid; place-items: center;
-  font-size: 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
   color: white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-.school-icon.uni { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.school-icon.hs  { background: linear-gradient(135deg, #f59e0b, #d97706); }
-
-.school-info h3 { margin: 0; font-size: 1.1rem; font-weight: 700; color: #1f2937; }
-.school-meta { font-size: 0.9rem; color: #6b7280; font-weight: 500; }
-
-.toggle-btn {
-  color: #9ca3af;
-  transition: transform 0.3s ease;
-}
-.toggle-btn.rotated {
-  transform: rotate(180deg);
-  color: var(--primary-500);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Body (Accordion Content) */
-.card-body {
-  margin-top: 1rem;
-  animation: slideDown 0.3s ease forwards;
+.uni {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
 }
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
-  margin-bottom: 1rem;
+.hs {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
 }
 
-.card-body p {
-  margin: 0;
-  line-height: 1.6;
-  color: #4b5563;
+.head-info {
+  flex: 1;
+}
+
+.school-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem 0;
+  color: var(--text-color);
+}
+
+.school-meta {
   font-size: 0.95rem;
+  color: var(--text-color-secondary);
+  font-weight: 500;
+}
+
+/* Card Body */
+.description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-color-secondary);
+  margin: 0;
+}
+
+/* Dark Mode Adjustments */
+@media (prefers-color-scheme: dark) {
+  .section-card {
+    background: var(--surface-card);
+    border-color: var(--surface-border);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .card-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 }
 </style>

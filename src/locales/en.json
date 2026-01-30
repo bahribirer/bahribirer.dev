@@ -16,42 +16,43 @@
   },
   "projects": {
     "title": "Projects",
+    "subtitle": "My personal work, academic projects, and professional case studies.",
     "serveR": {
       "title": "ServeR — Backendless Test Environment for Frontend",
       "summary": "Summary",
-      "summary_desc": "ServeR is a *mock/virtual backend* solution I designed for **frontend teams** to maintain development and **test automation** even if the real backend isn't ready.",
+      "summary_desc": "ServeR is a mock/virtual backend solution I designed for frontend teams to maintain development and test automation even if the real backend isn't ready.",
       "problem": "Problem & Purpose",
-      "problem_desc": "UI development in distributed teams slows down until API contracts are completed. ServeR was developed with the goal of *minimizing waiting* by supporting a **contract-first** approach.",
+      "problem_desc": "UI development in distributed teams slows down until API contracts are completed. ServeR was developed with the goal of minimizing waiting by supporting a contract-first approach.",
       "design": "Solution Design",
       "design_features": [
         "Scenario-based response generation (success, empty data, error, delay, etc.).",
-        "Mock generation from **schema/contract** for REST and GraphQL.",
-        "Simulation of real-time **event streams** (WebSocket / Socket.IO).",
+        "Mock generation from schema/contract for REST and GraphQL.",
+        "Simulation of real-time event streams (WebSocket / Socket.IO).",
         "Profile/environment isolation (team or branch-based work).",
         "Fast switching and reset with CLI & lightweight management layer.",
-        "Portable installation with Docker image and **CI/CD** pipeline."
+        "Portable installation with Docker image and CI/CD pipeline."
       ],
       "role": "My Role & Responsibilities",
       "role_features": [
-        "Design and development of the core **scenario engine**.",
-        "Writing REST/GraphQL **adapters** and importing contracts.",
+        "Design and development of the core scenario engine.",
+        "Writing REST/GraphQL adapters and importing contracts.",
         "Socket.IO based real-time event publish/subscribe infrastructure.",
-        "Setting up **fixture/seed** flows suitable for test automation.",
-        "Installation, usage, and integration **documentation**."
+        "Setting up fixture/seed flows suitable for test automation.",
+        "Installation, usage, and integration documentation."
       ],
       "results": "Results & Learnings",
       "results_features": [
-        "UI development process became **less dependent** on the real backend.",
-        "Edge-case scenarios and connection issues became **visible early**.",
-        "Practical experience gained in real-time systems, test culture, and **corporate code standards**."
+        "UI development process became less dependent on the real backend.",
+        "Edge-case scenarios and connection issues became visible early.",
+        "Practical experience gained in real-time systems, test culture, and corporate code standards."
       ],
       "tech": "Tech Stack"
     },
     "web": {
       "title": "Vue Web Sites — Modern Corporate Interfaces",
       "summary": "Summary",
-      "summary_desc": "I develop modern web sites based **entirely on Vue 3 and Vite** for corporate clients. These projects aim for *high performance, SEO compliance, and mobile-first* structures.",
-      "desc": "Especially in my recent projects, I manage **SEO strategies, Google Analytics 4 (GA4), and Search Console** integrations end-to-end to increase digital visibility.<br />Examples: <a href=\"https://trnyapı.com\" target=\"_blank\">trnyapı.com</a>, <a href=\"https://rmsyapigrubu.com\" target=\"_blank\">rmsyapigrubu.com</a>, <a href=\"https://peralegal.com.tr\" target=\"_blank\">peralegal.com.tr</a>",
+      "summary_desc": "I develop modern web sites based entirely on Vue 3 and Vite for corporate clients. These projects aim for high performance, SEO compliance, and mobile-first structures.",
+      "desc": "Especially in my recent projects, I manage SEO strategies, Google Analytics 4 (GA4), and Search Console integrations end-to-end to increase digital visibility.<br />Examples: <a href=\"https://trnyapı.com\" target=\"_blank\">trnyapı.com</a>, <a href=\"https://rmsyapigrubu.com\" target=\"_blank\">rmsyapigrubu.com</a>, <a href=\"https://peralegal.com.tr\" target=\"_blank\">peralegal.com.tr</a>",
       "features": "General Features",
       "features_list": [
         "Modular component architecture with Vue 3 Composition API and TypeScript.",
@@ -69,7 +70,7 @@
       "results": "Results & Learnings",
       "results_list": [
         "Fast and lightweight Vue infrastructure standardized for corporate brands.",
-        "Data-driven SEO tracking provided with **Google Analytics and Search Console**.",
+        "Data-driven SEO tracking provided with Google Analytics and Search Console.",
         "High scores achieved in performance measurements (Lighthouse)."
       ]
     },
@@ -96,32 +97,32 @@
     "tiki": {
       "title": "Tiki Taka Toe — 3x3 Strategy with Football Knowledge",
       "summary": "Summary",
-      "summary_desc": "**Tiki Taka Toe** is a multiplayer mobile game that combines football knowledge and strategy. *National teams* and *clubs* are listed on the edges of a 4x4 board; football players who meet both criteria are written in the 3x3 intersection areas in the center.",
+      "summary_desc": "Tiki Taka Toe is a multiplayer mobile game that combines football knowledge and strategy. National teams and clubs are listed on the edges of a 4x4 board; football players who meet both criteria are written in the 3x3 intersection areas in the center.",
       "mechanics": "Gameplay Mechanics",
       "mechanics_list": [
         "Edged of the board: national team and club names in the top/left headers.",
         "Center 3x3 cell: a football player who meets both criteria in the relevant row and column is entered.",
-        "When the move is verified, the cell is locked with the **X** or **O** mark of the player who made the move.",
+        "When the move is verified, the cell is locked with the X or O mark of the player who made the move.",
         "Winning: forming a vertical/horizontal/diagonal triple; accuracy of information takes priority in a draw."
       ],
       "architecture": "Architecture & Infrastructure",
       "architecture_list": [
-        "**Flutter (Dart)** client: board state, turn management, and verification feedback.",
-        "**Python-based backend**: player–club–national team matching verification engine.",
-        "**WebSocket** lobby: room creation/joining, real-time matching, and turn updates.",
+        "Flutter (Dart) client: board state, turn management, and verification feedback.",
+        "Python-based backend: player–club–national team matching verification engine.",
+        "WebSocket lobby: room creation/joining, real-time matching, and turn updates.",
         "Game rules are stored on the server side; invalid moves are immediately rejected."
       ],
       "role": "My Role & Contributions",
       "role_list": [
         "Implementation of the Flutter interface and game loop (turn, validity, end).",
-        "Development of the Python verification service and WebSocket-based **lobby/room** architecture.",
+        "Development of the Python verification service and WebSocket-based lobby/room architecture.",
         "Management of real-time synchronization and error/edge cases in the competition flow."
       ],
       "tech": "Tech Stack",
       "learnings": "Learnings",
       "learnings_list": [
-        "**Consistency** and **latency tolerance** in real-time room structures and turn management.",
-        "**Flexible schema** for info verification rules and UX against network delays.",
+        "Consistency and latency tolerance in real-time room structures and turn management.",
+        "Flexible schema for info verification rules and UX against network delays.",
         "Maintaining game flow by simplifying error scenarios in mobile-server communication."
       ]
     }
@@ -229,7 +230,7 @@
       "intern": "Intern"
     },
     "havelsan": {
-      "summary": "Took part in enterprise software development processes. Contributed to module development using TypeScript; adopted corporate code standards by adapting to team workflows. Worked on real-time systems and test automation environments within the scope of my graduation project **ServeR**.",
+      "summary": "Took part in enterprise software development processes. Contributed to module development using TypeScript; adopted corporate code standards by adapting to team workflows. Worked on real-time systems and test automation environments within the scope of my graduation project ServeR.",
       "res_list": [
         "Screen and component development, state and form management in corporate modules using TypeScript and YAML structure on the frontend with Vue.js.",
         "Endpoint addition, DTO/mapper adjustments, and tests in TypeScript / JavaScript based services.",
@@ -237,7 +238,7 @@
         "Working with Git flow (branch strategy, code review) and integration into the CI/CD process."
       ],
       "high_list": [
-        "Designing environments that enable frontend teams to test <em>without backend</em> using **ServeR** (REST, GraphQL, WebSocket / Socket.IO).",
+        "Designing environments that enable frontend teams to test without backend using ServeR (REST, GraphQL, WebSocket / Socket.IO).",
         "Participation in internal team sprint ceremonies; task tracking and reporting.",
         "Producing code that is readable, testable, and compliant with corporate code standards."
       ]

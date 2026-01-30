@@ -16,46 +16,47 @@
   },
   "projects": {
     "title": "Projeler",
+    "subtitle": "Kişisel çalışmalarım, akademik projelerim ve profesyonel vaka analizlerim.",
     "serveR": {
       "title": "ServeR — Frontend için Backend’siz Test Ortamı",
       "summary": "Özet",
-      "summary_desc": "ServeR; **frontend ekiplerinin** gerçek backend hazır olmasa bile geliştirme ve **test otomasyonunu** sürdürebilmesi için tasarladığım bir *mock/virtual backend* çözümüdür.",
+      "summary_desc": "ServeR; frontend ekiplerinin gerçek backend hazır olmasa bile geliştirme ve test otomasyonunu sürdürebilmesi için tasarladığım bir mock/virtual backend çözümüdür.",
       "problem": "Problem & Amaç",
-      "problem_desc": "Dağıtık takımlarda UI geliştirme, API sözleşmeleri tamamlanana kadar yavaşlar. ServeR; **sözleşme odaklı** yaklaşımı destekleyerek *beklemeyi en aza indirme* hedefiyle geliştirildi.",
+      "problem_desc": "Dağıtık takımlarda UI geliştirme, API sözleşmeleri tamamlanana kadar yavaşlar. ServeR; sözleşme odaklı yaklaşımı destekleyerek beklemeyi en aza indirme hedefiyle geliştirildi.",
       "design": "Çözüm Tasarımı",
       "design_features": [
         "Senaryo tabanlı yanıt üretimi (başarılı, boş veri, hata, gecikme vb.).",
-        "REST ve GraphQL için **şema/sözleşmeden** mock üretimi.",
-        "Gerçek zamanlı **event akışlarını** canlandırma (WebSocket / Socket.IO).",
+        "REST ve GraphQL için şema/sözleşmeden mock üretimi.",
+        "Gerçek zamanlı event akışlarını canlandırma (WebSocket / Socket.IO).",
         "Profil/ortam izolasyonu (takım veya branch bazlı çalışma).",
         "CLI & hafif yönetim katmanı ile hızlı geçiş ve sıfırlama.",
-        "Docker imajı ve **CI/CD** hattıyla taşınabilir kurulum."
+        "Docker imajı ve CI/CD hattıyla taşınabilir kurulum."
       ],
       "role": "Rolüm & Sorumluluklar",
       "role_features": [
-        "Temel **senaryo motorunun** tasarımı ve geliştirilmesi.",
-        "REST/GraphQL **adaptörlerinin** yazılması ve sözleşme içeri aktarımı.",
+        "Temel senaryo motorunun tasarımı ve geliştirilmesi.",
+        "REST/GraphQL adaptörlerinin yazılması ve sözleşme içeri aktarımı.",
         "Socket.IO tabanlı gerçek zamanlı olay yayın/abonelik altyapısı.",
-        "Test otomasyonuna uygun **fixture/seed** akışının kurgulanması.",
-        "Kurulum, kullanım ve entegrasyon **dokümantasyonu**."
+        "Test otomasyonuna uygun fixture/seed akışının kurgulanması.",
+        "Kurulum, kullanım ve entegrasyon dokümantasyonu."
       ],
       "results": "Sonuç & Öğrenimler",
       "results_features": [
-        "UI geliştirme süreci, gerçek backend’den **daha az bağımlı** hâle geldi.",
-        "Edge-case senaryolar ve bağlantı sorunları **erken görünür** oldu.",
-        "Gerçek zamanlı sistemler, test kültürü ve **kurumsal kod standartları** konusunda pratik kazanımı."
+        "UI geliştirme süreci, gerçek backend’den daha az bağımlı hâle geldi.",
+        "Edge-case senaryolar ve bağlantı sorunları erken görünür oldu.",
+        "Gerçek zamanlı sistemler, test kültürü ve kurumsal kod standartları konusunda pratik kazanımı."
       ],
       "tech": "Teknik Yığın"
     },
     "web": {
       "title": "Vue Web Siteleri — Modern Kurumsal Arayüzler",
       "summary": "Özet",
-      "summary_desc": "Kurumsal müşteriler için **tamamen Vue 3 ve Vite** tabanlı modern web siteleri geliştiriyorum. Bu projelerde *yüksek performanslı, SEO uyumlu ve mobil öncelikli* yapılar hedefleniyor.",
-      "desc": "Özellikle son projelerimde <strong>SEO stratejileri, Google Analytics 4 (GA4) ve Search Console</strong> entegrasyonlarını uçtan uca yöneterek dijital görünürlüğü artırıyorum.<br />Örnekler: <a href=\"https://trnyapı.com\" target=\"_blank\">trnyapı.com</a>, <a href=\"https://rmsyapigrubu.com\" target=\"_blank\">rmsyapigrubu.com</a>, <a href=\"https://peralegal.com.tr\" target=\"_blank\">peralegal.com.tr</a>",
+      "summary_desc": "Kurumsal müşteriler için tamamen Vue 3 ve Vite tabanlı modern web siteleri geliştiriyorum. Bu projelerde yüksek performanslı, SEO uyumlu ve mobil öncelikli yapılar hedefleniyor.",
+      "desc": "Özellikle son projelerimde SEO stratejileri, Google Analytics 4 (GA4) ve Search Console entegrasyonlarını uçtan uca yöneterek dijital görünürlüğü artırıyorum.<br />Örnekler: <a href=\"https://trnyapı.com\" target=\"_blank\">trnyapı.com</a>, <a href=\"https://rmsyapigrubu.com\" target=\"_blank\">rmsyapigrubu.com</a>, <a href=\"https://peralegal.com.tr\" target=\"_blank\">peralegal.com.tr</a>",
       "features": "Genel Özellikler",
       "features_list": [
         "Vue 3 Composition API ve TypeScript ile modüler bileşen mimarisi.",
-        "Vite ile *hızlı derleme ve geliştirme ortamı*.",
+        "Vite ile hızlı derleme ve geliştirme ortamı.",
         "PrimeVue ve Tailwind CSS kullanılarak estetik ve uyumlu arayüzler.",
         "SEO optimizasyonu ve meta etiket yönetimi.",
         "Form işlemleri ve veri gönderimi için Axios entegresi."
@@ -69,7 +70,7 @@
       "results": "Sonuç & Öğrenimler",
       "results_list": [
         "Kurumsal markalar için hızlı ve hafif Vue altyapısı standartlaştırıldı.",
-        "**Google Analytics ve Search Console** ile veri odaklı SEO takibi sağlandı.",
+        "Google Analytics ve Search Console ile veri odaklı SEO takibi sağlandı.",
         "Performans ölçümlerinde (Lighthouse) yüksek skorlar elde edildi."
       ]
     },
@@ -96,32 +97,32 @@
     "tiki": {
       "title": "Tiki Taka Toe — Futbol Bilgisiyle 3x3 Strateji",
       "summary": "Özet",
-      "summary_desc": "**Tiki Taka Toe**, futbol bilgisini ve stratejiyi birleştiren çok oyunculu bir mobil oyundur. 4x4’lük tahtanın kenarlarında *milli takımlar* ve *kulüpler* listelenir; merkezdeki 3x3 kesişim alanlarına her iki kriteri de sağlayan futbolcular yazılır.",
+      "summary_desc": "Tiki Taka Toe, futbol bilgisini ve stratejiyi birleştiren çok oyunculu bir mobil oyundur. 4x4’lük tahtanın kenarlarında milli takımlar ve kulüpler listelenir; merkezdeki 3x3 kesişim alanlarına her iki kriteri de sağlayan futbolcular yazılır.",
       "mechanics": "Oynanış Mekaniği",
       "mechanics_list": [
         "Tahtanın kenarları: üst/soldaki başlıklarda milli takım ve kulüp isimleri.",
         "Merkez 3x3 hücre: ilgili satır ve sütundaki iki koşulu da sağlayan bir futbolcu girilir.",
-        "Hamle doğrulanınca hücre, hamleyi yapan oyuncunun **X** veya **O** işaretiyle kilitlenir.",
+        "Hamle doğrulanınca hücre, hamleyi yapan oyuncunun X veya O işaretiyle kilitlenir.",
         "Kazanım: dikey/yatay/çapraz üçlü oluşturmak; beraberlikte bilgi doğruluğu önceliklidir."
       ],
       "architecture": "Mimari & Altyapı",
       "architecture_list": [
-        "**Flutter (Dart)** istemci: tahta durumu, sıra yönetimi ve doğrulama geri bildirimleri.",
-        "**Python tabanlı backend**: futbolcu–kulüp–milli takım eşleştirme doğrulama motoru.",
-        "**WebSocket** lobi: oda açma/katılma, gerçek zamanlı eşleşme ve sıra güncellemeleri.",
+        "Flutter (Dart) istemci: tahta durumu, sıra yönetimi ve doğrulama geri bildirimleri.",
+        "Python tabanlı backend: futbolcu–kulüp–milli takım eşleştirme doğrulama motoru.",
+        "WebSocket lobi: oda açma/katılma, gerçek zamanlı eşleşme ve sıra güncellemeleri.",
         "Oyun kuralları sunucu tarafında saklanır; geçersiz hamleler anında reddedilir."
       ],
       "role": "Rolüm & Katkılar",
       "role_list": [
         "Flutter arayüzü ve oyun döngüsünün (turn, geçerlilik, bitiş) kurgulanması.",
-        "Python doğrulama servisi ve WebSocket tabanlı **lobi/oda** mimarisinin geliştirilmesi.",
+        "Python doğrulama servisi ve WebSocket tabanlı lobi/oda mimarisinin geliştirilmesi.",
         "Gerçek zamanlı senkronizasyon ve yarışma akışında hata/kenar durumlarının yönetimi."
       ],
       "tech": "Teknik Yığın",
       "learnings": "Öğrenimler",
       "learnings_list": [
-        "Gerçek zamanlı oda yapıları ve sıra yönetiminde **tutarlılık** ve **gecikme toleransı**.",
-        "Bilgi doğrulama kuralları için **esnek şema** ve ağ gecikmelerine karşı kullanıcı deneyimi.",
+        "Gerçek zamanlı oda yapıları ve sıra yönetiminde tutarlılık ve gecikme toleransı.",
+        "Bilgi doğrulama kuralları için esnek şema ve ağ gecikmelerine karşı kullanıcı deneyimi.",
         "Mobil-sunucu iletişiminde hata senaryolarını sadeleştirerek oyun akışını koruma."
       ]
     }
@@ -229,7 +230,7 @@
       "intern": "Stajyer"
     },
     "havelsan": {
-      "summary": "Kurumsal yazılım geliştirme süreçlerinde görev aldım. TypeScript kullanarak modül geliştirmelerine katkı verdim; ekip iş akışlarına uyum sağlayarak kurumsal kod standartlarını benimsedim. Bitirme projem **ServeR** kapsamında gerçek zamanlı sistemler ve test otomasyon ortamları üzerinde çalıştım.",
+      "summary": "Kurumsal yazılım geliştirme süreçlerinde görev aldım. TypeScript kullanarak modül geliştirmelerine katkı verdim; ekip iş akışlarına uyum sağlayarak kurumsal kod standartlarını benimsedim. Bitirme projem ServeR kapsamında gerçek zamanlı sistemler ve test otomasyon ortamları üzerinde çalıştım.",
       "res_list": [
         "TypeScript ve YAML yapısı beraber ön yüz tarafında ise Vue.js ile kurumsal modüllerde ekran ve komponent geliştirme, state ve form yönetimi.",
         "TypeScript / JavaScript tabanlı servislerde endpoint ekleme, DTO/mapper düzenlemeleri ve testler.",
@@ -237,7 +238,7 @@
         "Git akışıyla çalışma (branch stratejisi, code review) ve CI/CD sürecine entegrasyon."
       ],
       "high_list": [
-        "**ServeR** ile frontend ekiplerinin <em>backend’siz</em> test yapabilmesini sağlayan ortamların kurgulanması (REST, GraphQL, WebSocket / Socket.IO).",
+        "ServeR ile frontend ekiplerinin backend’siz test yapabilmesini sağlayan ortamların kurgulanması (REST, GraphQL, WebSocket / Socket.IO).",
         "Takım içi sprint seremonilerine katılım; görev takibi ve raporlama.",
         "Kurumsal kod standartlarına uygun, okunabilir ve test edilebilir kod üretimi."
       ]
