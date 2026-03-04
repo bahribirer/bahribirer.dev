@@ -125,6 +125,76 @@
         "Flexible schema for info verification rules and UX against network delays.",
         "Maintaining game flow by simplifying error scenarios in mobile-server communication."
       ]
+    },
+    "levance": {
+      "title": "Levance CMS — Headless Content Management System",
+      "summary_desc": "Levance CMS is a headless content management system I built end-to-end, enabling small and medium businesses to manage their websites from a single panel. It features a 4-layer architecture: admin panel, RESTful backend, mobile app, and static site generator.",
+      "architecture_title": "Architecture & Infrastructure",
+      "architecture_list": [
+        "<strong>FastAPI Backend:</strong> High-performance async Python REST API with JWT authentication, role-based authorization, and MongoDB Atlas integration.",
+        "<strong>Vue 3 Admin Panel:</strong> Built with Composition API, PrimeVue, and Pinia. Features page editor, media gallery, SEO management, and live preview.",
+        "<strong>Nuxt 3 Static Site Generator:</strong> One-click deploy to Vercel from the admin panel, producing SEO-friendly static websites."
+      ],
+      "security_title": "Security & DevOps",
+      "security_list": [
+        "<strong>CI/CD Pipeline:</strong> Automated deployment via GitHub Actions; git push = live update.",
+        "<strong>Rate Limiting:</strong> Brute-force protection with slowapi (20 requests/minute).",
+        "<strong>Security Headers:</strong> HSTS, CSP, X-Frame-Options middleware layer.",
+        "<strong>Cloudflare WAF:</strong> DDoS protection, bot filtering, and SSL (Full Strict).",
+        "<strong>Atlas IP Whitelisting:</strong> Database access restricted to AWS server only."
+      ],
+      "role_title": "My Role & Contributions",
+      "role_list": [
+        "End-to-end architecture design and development of the entire system (Backend, Admin, Mobile, SSG).",
+        "Containerized production environment setup on AWS EC2 with Docker.",
+        "MongoDB Atlas integration and database schema design.",
+        "GitHub Actions CI/CD pipeline setup from scratch.",
+        "Integration of military-grade security layers (WAF, Rate Limiting, IP Whitelisting)."
+      ],
+      "results_title": "Results",
+      "results_list": [
+        "Multi-site management and instant static site deployment achieved from a single panel.",
+        "Zero-touch deployment: code changes automatically go live with git push.",
+        "Production environment secured with enterprise-grade security infrastructure."
+      ],
+      "tech": "Tech Stack"
+    },
+    "counpaign": {
+      "title": "Counpaign — Smart Loyalty & Campaign Platform",
+      "badge": "Co-Founder",
+      "summary_desc": "Counpaign is a SaaS product I co-founded and built end-to-end, enabling businesses to manage customer loyalty programs, campaigns, and gift vouchers from a single platform. It features a 3-layer architecture: mobile app, admin panel, and backend. <strong>I am the co-founder of this project.</strong>",
+      "mobile_title": "Mobile App (Flutter)",
+      "mobile_list": [
+        "<strong>Advanced QR Wallet:</strong> Digital wallet to store earned campaigns and vouchers, redeeming them instantly via QR codes.",
+        "<strong>Twilio SMS & Pinput:</strong> Passwordless login and modern SMS OTP screens for secure phone verification.",
+        "<strong>Live Analytics & Statistics:</strong> In-app tracking of spending habits and campaign progress using fl_chart.",
+        "<strong>Real-Time Notifications:</strong> Instant campaign announcements and personalized push notifications via Firebase FCM.",
+        "<strong>Lottie & Haptic Feedback:</strong> Modern micro-animations and haptic (vibration/shake) feedback to enhance UX."
+      ],
+      "admin_title": "Admin Panel (Vue 3)",
+      "admin_list": [
+        "<strong>Dashboard & Analytics:</strong> Campaign performance, customer statistics, and revenue charts with Chart.js.",
+        "<strong>Campaign Management:</strong> QR code generation, gift voucher creation, and customer segmentation.",
+        "<strong>PDF Reporting:</strong> Instant report generation and download with jsPDF.",
+        "<strong>PrimeVue & Tailwind:</strong> Professional and responsive management interface."
+      ],
+      "security_title": "Security & DevOps",
+      "security_list": [
+        "<strong>CI/CD Pipeline:</strong> Automated lint, build, and SSH deployment to EC2 via GitHub Actions.",
+        "<strong>Docker & Nginx:</strong> Containerized production environment with SSL termination and Gzip.",
+        "<strong>Helmet & Rate Limiting:</strong> Secure HTTP headers and 200 req/15min throttling.",
+        "<strong>MongoDB Atlas:</strong> Cloud database with automated daily backups.",
+        "<strong>Socket.IO:</strong> Real-time notifications and data synchronization."
+      ],
+      "role_title": "My Role & Contributions",
+      "role_list": [
+        "Co-founder leading product vision, technical architecture, and development process.",
+        "End-to-end development of Flutter mobile app, Vue 3 admin panel, and Node.js backend.",
+        "Production environment setup on AWS EC2 with Docker and CI/CD pipeline integration.",
+        "Integration of third-party services: Firebase, Twilio, and Google Maps.",
+        "Design of enterprise-grade security infrastructure (Helmet, Rate Limiting, SSL, CORS)."
+      ],
+      "tech": "Tech Stack"
     }
   },
   "skills": {

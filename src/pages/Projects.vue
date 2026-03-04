@@ -247,6 +247,140 @@
       </div>
     </section>
 
+    <!-- Levance CMS -->
+    <section class="project-card levance">
+      <div class="project-head">
+        <div class="icon-box">
+          <i class="pi pi-database"></i>
+        </div>
+        <div class="head-content">
+          <h3 class="project-title">{{ t('projects.levance.title') }}</h3>
+          <div class="project-tags">
+            <Tag class="p-tag" value="Full Stack" severity="danger" rounded />
+            <Tag class="p-tag" value="DevOps" severity="warning" rounded />
+            <Tag class="p-tag" value="Security" severity="info" rounded />
+          </div>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <p class="summary-text" v-html="t('projects.levance.summary_desc')"></p>
+        
+        <div class="details-grid">
+          <div class="detail-col">
+            <h4 class="col-title"><i class="pi pi-sitemap"></i> {{ t('projects.levance.architecture_title') }}</h4>
+            <ul class="clean-list">
+              <li v-for="(feat, i) in tm('projects.levance.architecture_list')" :key="i" v-html="rt(feat)"></li>
+            </ul>
+          </div>
+          <div class="detail-col">
+            <h4 class="col-title"><i class="pi pi-shield"></i> {{ t('projects.levance.security_title') }}</h4>
+            <ul class="clean-list">
+              <li v-for="(feat, i) in tm('projects.levance.security_list')" :key="i" v-html="rt(feat)"></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="details-grid mt-4">
+          <div class="detail-col">
+            <h4 class="col-title"><i class="pi pi-user"></i> {{ t('projects.levance.role_title') }}</h4>
+            <ul class="clean-list">
+              <li v-for="(feat, i) in tm('projects.levance.role_list')" :key="i" v-html="rt(feat)"></li>
+            </ul>
+          </div>
+          <div class="detail-col">
+            <h4 class="col-title"><i class="pi pi-check-circle"></i> {{ t('projects.levance.results_title') }}</h4>
+            <ul class="clean-list">
+              <li v-for="(feat, i) in tm('projects.levance.results_list')" :key="i" v-html="rt(feat)"></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tech-stack-section">
+          <span class="stack-label">{{ t('projects.levance.tech') }}</span>
+          <div class="tech-grid">
+            <div class="tech-item python"><i class="pi pi-server"></i> FastAPI</div>
+            <div class="tech-item vue"><i class="pi pi-desktop"></i> Vue 3</div>
+            <div class="tech-item nuxt"><i class="pi pi-globe"></i> Nuxt 3</div>
+            <div class="tech-item mongo"><i class="pi pi-database"></i> MongoDB Atlas</div>
+            <div class="tech-item docker"><i class="pi pi-box"></i> Docker</div>
+            <div class="tech-item aws"><i class="pi pi-cloud"></i> AWS EC2</div>
+            <div class="tech-item ghactions"><i class="pi pi-github"></i> GitHub Actions</div>
+            <div class="tech-item cf"><i class="pi pi-shield"></i> Cloudflare</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Counpaign -->
+    <section class="project-card counpaign">
+      <div class="project-head">
+        <div class="icon-box">
+          <i class="pi pi-megaphone"></i>
+        </div>
+        <div class="head-content">
+          <div class="flex align-items-center gap-2 mb-1">
+            <h3 class="project-title m-0">{{ t('projects.counpaign.title') }}</h3>
+            <Tag class="p-tag-founder" :value="t('projects.counpaign.badge')" severity="success" rounded />
+          </div>
+          <div class="project-tags">
+            <Tag class="p-tag" value="SaaS" severity="info" rounded />
+            <Tag class="p-tag" value="Loyalty" severity="success" rounded />
+            <Tag class="p-tag" value="Fintech" severity="help" rounded />
+          </div>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <p class="summary-text" v-html="t('projects.counpaign.summary_desc')"></p>
+        
+        <div class="details-grid">
+          <div class="detail-col">
+            <h4 class="col-title"><i class="pi pi-mobile"></i> {{ t('projects.counpaign.mobile_title') }}</h4>
+            <ul class="clean-list">
+              <li v-for="(feat, i) in tm('projects.counpaign.mobile_list')" :key="i" v-html="rt(feat)"></li>
+            </ul>
+          </div>
+          <div class="detail-col">
+            <h4 class="col-title"><i class="pi pi-desktop"></i> {{ t('projects.counpaign.admin_title') }}</h4>
+            <ul class="clean-list">
+              <li v-for="(feat, i) in tm('projects.counpaign.admin_list')" :key="i" v-html="rt(feat)"></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="details-grid mt-4">
+          <div class="detail-col">
+            <h4 class="col-title"><i class="pi pi-lock"></i> {{ t('projects.counpaign.security_title') }}</h4>
+            <ul class="clean-list">
+              <li v-for="(feat, i) in tm('projects.counpaign.security_list')" :key="i" v-html="rt(feat)"></li>
+            </ul>
+          </div>
+          <div class="detail-col">
+            <h4 class="col-title"><i class="pi pi-users"></i> {{ t('projects.counpaign.role_title') }}</h4>
+            <ul class="clean-list">
+              <li v-for="(feat, i) in tm('projects.counpaign.role_list')" :key="i" v-html="rt(feat)"></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tech-stack-section">
+          <span class="stack-label">{{ t('projects.counpaign.tech') }}</span>
+          <div class="tech-grid">
+            <div class="tech-item node"><i class="pi pi-server"></i> Node.js (Express)</div>
+            <div class="tech-item mongo"><i class="pi pi-database"></i> MongoDB</div>
+            <div class="tech-item flutter"><i class="pi pi-mobile"></i> Flutter</div>
+            <div class="tech-item vue"><i class="pi pi-desktop"></i> Vue 3</div>
+            <div class="tech-item firebase"><i class="pi pi-cloud"></i> Firebase</div>
+            <div class="tech-item socket"><i class="pi pi-sort-alt"></i> Socket.IO</div>
+            <div class="tech-item docker"><i class="pi pi-box"></i> Docker</div>
+            <div class="tech-item aws"><i class="pi pi-cloud"></i> AWS EC2</div>
+            <div class="tech-item ghactions"><i class="pi pi-github"></i> GitHub Actions</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 </template>
 
@@ -358,6 +492,8 @@ const { t, tm, rt } = useI18n()
 .web { --accent: #0ea5e9; }     /* Sky */
 .larosee { --accent: #f43f5e; } /* Rose */
 .tiki { --accent: #22c55e; }    /* Green */
+.levance { --accent: #f59e0b; } /* Amber */
+.counpaign { --accent: #a855f7; } /* Purple */
 
 /* Header Area */
 .project-head {
@@ -368,6 +504,21 @@ const { t, tm, rt } = useI18n()
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--surface-border);
 }
+
+.p-tag-founder {
+  background: var(--primary-500) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  padding: 2px 8px !important;
+  border: none !important;
+}
+
+.m-0 { margin: 0 !important; }
+.flex { display: flex; }
+.align-items-center { align-items: center; }
+.gap-2 { gap: 0.5rem; }
+.mb-1 { margin-bottom: 0.25rem; }
 
 .icon-box {
   width: 64px;
@@ -539,6 +690,11 @@ const { t, tm, rt } = useI18n()
 .base { --item-color: #336791; }
 .ai { --item-color: #4285f4; }
 .dart { --item-color: #0175c2; }
+.mongo { --item-color: #47a248; }
+.nuxt { --item-color: #00dc82; }
+.ghactions { --item-color: #2088ff; }
+.cf { --item-color: #f48120; }
+.firebase { --item-color: #ffca28; }
 
 /* Dark Mode Adjustments */
 @media (prefers-color-scheme: dark) {

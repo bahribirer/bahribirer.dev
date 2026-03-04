@@ -125,6 +125,76 @@
         "Bilgi doğrulama kuralları için esnek şema ve ağ gecikmelerine karşı kullanıcı deneyimi.",
         "Mobil-sunucu iletişiminde hata senaryolarını sadeleştirerek oyun akışını koruma."
       ]
+    },
+    "levance": {
+      "title": "Levance CMS — Headless İçerik Yönetim Sistemi",
+      "summary_desc": "Levance CMS, küçük ve orta ölçekli işletmelerin web sitelerini tek bir panelden yönetmesini sağlayan, uçtan uca geliştirdiğim bir headless içerik yönetim sistemidir. Admin paneli, RESTful backend, mobil uygulama ve statik site üreteci olmak üzere 4 katmanlı bir mimariye sahiptir.",
+      "architecture_title": "Mimari & Altyapı",
+      "architecture_list": [
+        "<strong>FastAPI Backend:</strong> Python tabanlı yüksek performanslı asenkron REST API. JWT kimlik doğrulama, rol bazlı yetkilendirme ve MongoDB Atlas entegrasyonu.",
+        "<strong>Vue 3 Admin Paneli:</strong> Composition API, PrimeVue ve Pinia ile geliştirilmiş kapsamlı yönetim arayüzü. Sayfa düzenleyici, medya galerisi, SEO yönetimi ve canlı önizleme.",
+        "<strong>Nuxt 3 Statik Site Üreteci:</strong> Admin panelinden tek tıkla Vercel'e deploy edilen, SEO dostu statik web siteleri."
+      ],
+      "security_title": "Güvenlik & DevOps",
+      "security_list": [
+        "<strong>CI/CD Pipeline:</strong> GitHub Actions ile otomatik deployment; git push = canlı güncelleme.",
+        "<strong>Rate Limiting:</strong> slowapi ile brute-force koruması (20 istek/dakika).",
+        "<strong>Security Headers:</strong> HSTS, CSP, X-Frame-Options middleware katmanı.",
+        "<strong>Cloudflare WAF:</strong> DDoS koruması, bot filtreleme ve SSL (Full Strict).",
+        "<strong>Atlas IP Whitelisting:</strong> Veritabanına yalnızca AWS sunucusundan erişim."
+      ],
+      "role_title": "Rolüm & Katkılar",
+      "role_list": [
+        "Tüm sistemin sıfırdan mimarisinin tasarımı ve geliştirilmesi (Backend, Admin, Mobile, SSG).",
+        "AWS EC2 üzerinde Docker ile konteynerize prodüksiyon ortamının kurulması.",
+        "MongoDB Atlas entegrasyonu ve veritabanı şema tasarımı.",
+        "GitHub Actions CI/CD pipeline'ının sıfırdan kurulumu.",
+        "Askeri düzey güvenlik katmanlarının entegrasyonu (WAF, Rate Limit, IP Whitelist)."
+      ],
+      "results_title": "Sonuçlar",
+      "results_list": [
+        "Tek bir panelden çoklu site yönetimi ve anlık statik site dağıtımı başarıyla sağlandı.",
+        "Zero-touch deployment: kod değişiklikleri git push ile otomatik olarak canlıya alınıyor.",
+        "Kurumsal düzeyde güvenlik altyapısı ile üretim ortamı korunuyor."
+      ],
+      "tech": "Teknik Yığın"
+    },
+    "counpaign": {
+      "title": "Counpaign — Akıllı Sadakat & Kampanya Platformu",
+      "badge": "Kurucu Ortak",
+      "summary_desc": "Counpaign, işletmelerin müşteri sadakat programlarını, kampanyalarını ve hediye çeklerini tek bir platformdan yönetmesini sağlayan uçtan uca geliştirdiğim SaaS ürünüdür. Mobil uygulama, admin paneli ve backend olmak üzere 3 katmanlı bir mimariye sahiptir. <strong>Projenin kurucu ortağıyım.</strong>",
+      "mobile_title": "Mobil Uygulama (Flutter)",
+      "mobile_list": [
+        "<strong>Gelişmiş QR Cüzdan:</strong> İşletmelerden kazanılan kampanya ve hediye çeklerini dijital cüzdanda saklama ve QR ile anlık kullanım.",
+        "<strong>Twilio SMS & Pinput:</strong> Şifresiz giriş ve güvenli telefon doğrulaması için modern SMS OTP ekranları.",
+        "<strong>Canlı Analitik & İstatistikler:</strong> Kullanıcıların harcama alışkanlıklarını ve kampanya takibini fl_chart ile uygulama içinden izlemesi.",
+        "<strong>Gerçek Zamanlı Bildirimler:</strong> Firebase FCM ile anlık kampanya duyuruları ve kişiselleştirilmiş push bildirimler.",
+        "<strong>Lottie & Haptik Etkileşim:</strong> Kullanıcı deneyimini zenginleştiren modern animasyonlar ve hassas titreşimli geri bildirimler."
+      ],
+      "admin_title": "Admin Paneli (Vue 3)",
+      "admin_list": [
+        "<strong>Dashboard & Analitik:</strong> Chart.js ile kampanya performansı, müşteri istatistikleri ve gelir grafikleri.",
+        "<strong>Kampanya Yönetimi:</strong> QR kod üretimi, hediye çeki oluşturma ve müşteri segmentasyonu.",
+        "<strong>PDF Raporlama:</strong> jsPDF ile anlık rapor oluşturma ve indirme.",
+        "<strong>PrimeVue & Tailwind:</strong> Profesyonel ve responsive yönetim arayüzü."
+      ],
+      "security_title": "Güvenlik & DevOps",
+      "security_list": [
+        "<strong>CI/CD Pipeline:</strong> GitHub Actions ile otomatik lint, build ve EC2'ye SSH deployment.",
+        "<strong>Docker & Nginx:</strong> Konteynerize prod ortamı, SSL sonlandırma ve Gzip sıkıştırma.",
+        "<strong>Helmet & Rate Limiting:</strong> HTTP güvenlik başlıkları ve 200 istek/15dk kısıtlaması.",
+        "<strong>MongoDB Atlas:</strong> Otomatik günlük yedekleme ile bulut veritabanı.",
+        "<strong>Socket.IO:</strong> Gerçek zamanlı bildirim ve veri senkronizasyonu."
+      ],
+      "role_title": "Rolüm & Katkılar",
+      "role_list": [
+        "Projenin kurucu ortağı olarak ürün vizyonu, teknik mimari ve geliştirme sürecinin liderliği.",
+        "Flutter mobil uygulama, Vue 3 admin paneli ve Node.js backend'in uçtan uca geliştirilmesi.",
+        "AWS EC2 üzerinde Docker ile prod ortamının kurulması ve CI/CD pipeline entegrasyonu.",
+        "Firebase, Twilio ve Google Maps gibi üçüncü parti servislerin entegrasyonu.",
+        "Kurumsal düzeyde güvenlik altyapısının (Helmet, Rate Limit, SSL, CORS) tasarımı."
+      ],
+      "tech": "Teknik Yığın"
     }
   },
   "skills": {
