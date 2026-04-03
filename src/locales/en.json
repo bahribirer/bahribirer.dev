@@ -94,6 +94,27 @@
       },
       "tech": "Technical Infrastructure"
     },
+    "larosee_shop": {
+      "title": "La Rosée E-commerce — Professional B2C Storefront",
+      "summary": "Summary",
+      "summary_desc": "A high-performance and secure e-commerce platform developed for direct-to-consumer sales of La Rosée products.",
+      "features": "Key Features",
+      "features_list": [
+        "<strong>Iyzico Integration:</strong> Fully compatible virtual POS infrastructure with secure payment steps and installment options.",
+        "<strong>Advanced Product Filtering:</strong> Dynamic category management based on collections (SunCare, SkinCare, etc.).",
+        "<strong>User Experience:</strong> Comprehensive customer panel including favorites, profile management, order tracking, and address book.",
+        "<strong>Pharmacy Locator:</strong> Interactive 'Nearest Pharmacy' search and directions feature based on Google Maps.",
+        "<strong>Legal Compliance:</strong> Professional e-commerce standards with distance sales agreements, KVKK, and cookie policies."
+      ],
+      "architecture": "Architecture & Infrastructure",
+      "architecture_list": [
+        "Fast frontend optimized with Vue 3 Composition API and Vite.",
+        "Centralized cart and user state management with Pinia.",
+        "SEO-oriented page structure and metadata management.",
+        "Flawless shopping experience on all devices with responsive design."
+      ],
+      "tech": "Tech Stack"
+    },
     "tiki": {
       "title": "Tiki Taka Toe — 3x3 Strategy with Football Knowledge",
       "summary": "Summary",

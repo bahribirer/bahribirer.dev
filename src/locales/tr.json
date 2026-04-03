@@ -94,6 +94,27 @@
       },
       "tech": "Teknik Altyapı"
     },
+    "larosee_shop": {
+      "title": "La Rosée E-commerce — Profesyonel B2C Mağaza",
+      "summary": "Özet",
+      "summary_desc": "La Rosée ürünlerinin son kullanıcıya doğrudan satışı için geliştirilmiş, yüksek performanslı ve güvenli bir e-ticaret platformudur.",
+      "features": "Öne Çıkan Özellikler",
+      "features_list": [
+        "<strong>Iyzico Entegrasyonu:</strong> Güvenli ödeme adımları ve taksit seçenekleriyle tam uyumlu sanal POS altyapısı.",
+        "<strong>Gelişmiş Ürün Filtreleme:</strong> Koleksiyon bazlı (Güneş Bakımı, Cilt Bakımı vb.) dinamik kategori yönetimi.",
+        "<strong>Kullanıcı Deneyimi:</strong> Favoriler, profil yönetimi, sipariş takibi ve adres defteri gibi kapsamlı müşteri paneli.",
+        "<strong>Eczane Bulucu:</strong> Google Maps tabanlı interaktif 'En Yakın Eczane' arama ve yol tarifi özelliği.",
+        "<strong>Yasal Uyumluluk:</strong> Mesafeli satış sözleşmesi, KVKK ve çerez politikalarıyla profesyonel e-ticaret standartları."
+      ],
+      "architecture": "Mimari & Altyapı",
+      "architecture_list": [
+        "Vue 3 Composition API ve Vite ile optimize edilmiş hızlı önyüz.",
+        "Pinia ile merkezi sepet ve kullanıcı state yönetimi.",
+        "SEO odaklı sayfa yapısı ve meta veri yönetimi.",
+        "Responsive tasarım ile tüm cihazlarda kusursuz alışveriş deneyimi."
+      ],
+      "tech": "Teknik Yığın"
+    },
     "tiki": {
       "title": "Tiki Taka Toe — Futbol Bilgisiyle 3x3 Strateji",
       "summary": "Özet",

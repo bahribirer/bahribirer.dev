@@ -187,6 +187,54 @@
       </div>
     </section>
 
+    <!-- La Rosee E-commerce -->
+    <section class="project-card larosee-shop">
+      <div class="project-head">
+        <div class="icon-box">
+          <i class="pi pi-shopping-cart"></i>
+        </div>
+        <div class="head-content">
+          <h3 class="project-title">{{ t('projects.larosee_shop.title') }}</h3>
+          <div class="project-tags">
+            <Tag class="p-tag" value="E-commerce" severity="success" rounded />
+            <Tag class="p-tag" value="Fintech" severity="help" rounded />
+            <Tag class="p-tag" value="B2C" severity="info" rounded />
+          </div>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <p class="summary-text" v-html="t('projects.larosee_shop.summary_desc')"></p>
+        
+        <div class="details-grid">
+          <div class="detail-col">
+            <h4 class="col-title"><i class="pi pi-star"></i> {{ t('projects.larosee_shop.features') }}</h4>
+            <ul class="clean-list">
+              <li v-for="(feat, i) in tm('projects.larosee_shop.features_list')" :key="i" v-html="rt(feat)"></li>
+            </ul>
+          </div>
+          <div class="detail-col">
+            <h4 class="col-title"><i class="pi pi-sitemap"></i> {{ t('projects.larosee_shop.architecture') }}</h4>
+             <ul class="clean-list">
+              <li v-for="(feat, i) in tm('projects.larosee_shop.architecture_list')" :key="i" v-html="rt(feat)"></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tech-stack-section">
+          <span class="stack-label">{{ t('projects.larosee_shop.tech') }}</span>
+          <div class="tech-grid">
+            <div class="tech-item vue"><i class="pi pi-desktop"></i> Vue 3</div>
+            <div class="tech-item vite"><i class="pi pi-bolt"></i> Vite</div>
+            <div class="tech-item ts"><i class="pi pi-code"></i> TypeScript</div>
+            <div class="tech-item tailwind"><i class="pi pi-palette"></i> Tailwind</div>
+            <div class="tech-item node"><i class="pi pi-server"></i> Node.js</div>
+            <div class="tech-item iyzico"><i class="pi pi-credit-card"></i> Iyzico API</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Tiki Taka Toe -->
     <section class="project-card tiki">
       <div class="project-head">
@@ -491,6 +539,7 @@ const { t, tm, rt } = useI18n()
 .server { --accent: #6366f1; }  /* Indigo */
 .web { --accent: #0ea5e9; }     /* Sky */
 .larosee { --accent: #f43f5e; } /* Rose */
+.larosee-shop { --accent: #ec4899; } /* Pink/Rose highlight */
 .tiki { --accent: #22c55e; }    /* Green */
 .levance { --accent: #f59e0b; } /* Amber */
 .counpaign { --accent: #a855f7; } /* Purple */
@@ -695,6 +744,7 @@ const { t, tm, rt } = useI18n()
 .ghactions { --item-color: #2088ff; }
 .cf { --item-color: #f48120; }
 .firebase { --item-color: #ffca28; }
+.iyzico { --item-color: #007bff; }
 
 /* Dark Mode Adjustments */
 @media (prefers-color-scheme: dark) {
