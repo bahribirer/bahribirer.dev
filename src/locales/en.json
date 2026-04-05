@@ -1,4 +1,7 @@
 {
+  "common": {
+    "view_detail": "View Details"
+  },
   "nav": {
     "home": "Home",
     "about": "About",
@@ -113,7 +116,9 @@
         "SEO-oriented page structure and metadata management.",
         "Flawless shopping experience on all devices with responsive design."
       ],
-      "tech": "Tech Stack"
+      "tech": "Tech Stack",
+      "site_label": "Live Website",
+      "site_cta": "Visit Site"
     },
     "tiki": {
       "title": "Tiki Taka Toe — 3x3 Strategy with Football Knowledge",
@@ -319,6 +324,88 @@
     "role": {
       "long_term": "Long Term Intern / Co-op Program",
       "intern": "Intern"
+    },
+    "tiki_detail": {
+      "back": "Projects",
+      "sub": "Multiplayer Mobile Game — Football Knowledge meets 3×3 Strategy",
+      "screenshots_label": "Screenshots",
+      "screenshots_placeholder": "Screenshots coming soon",
+      "gameplay_label": "Gameplay",
+      "gameplay_desc": "A 4×4 board where national teams and clubs sit on the edges. Fill the 3×3 center by naming a footballer who played for both the row club and column national team — before your opponent does.",
+      "arch_label": "Architecture",
+      "role_label": "My Role",
+      "tech_label": "Tech Stack",
+      "gameplay_steps": [
+        { "icon": "pi-th-large",     "title": "Board Setup",       "desc": "Top and left headers show clubs and national teams. The 3×3 center is your battlefield." },
+        { "icon": "pi-user",         "title": "Make Your Move",    "desc": "Enter a footballer who satisfies both the row and column criteria." },
+        { "icon": "pi-check-circle", "title": "Server Validates",  "desc": "The Python backend verifies in real-time. Invalid moves are rejected instantly." },
+        { "icon": "pi-trophy",       "title": "Win the Board",     "desc": "Form a vertical, horizontal or diagonal triple. Accuracy wins ties." }
+      ],
+      "arch_items": [
+        { "icon": "pi-mobile",    "title": "Flutter Client",      "desc": "Board state, turn management and validation feedback." },
+        { "icon": "pi-server",    "title": "Python Backend",      "desc": "Player–club–national team matching verification engine." },
+        { "icon": "pi-sort-alt",  "title": "WebSocket Lobby",     "desc": "Room creation/joining, real-time matching and turn updates." },
+        { "icon": "pi-shield",    "title": "Server-side Rules",   "desc": "All game rules stored server-side; cheating is impossible." }
+      ],
+      "role_items": [
+        { "icon": "pi-palette",   "title": "Flutter UI & Game Loop", "desc": "Built the full interface including turn flow, validity feedback and end-game state." },
+        { "icon": "pi-code",      "title": "Verification Engine",    "desc": "Developed the Python service that checks player–club–national team combinations." },
+        { "icon": "pi-sort-alt",  "title": "Real-time Sync",         "desc": "Handled WebSocket room architecture, edge cases and network delay resilience." }
+      ]
+    },
+    "larosee_detail": {
+      "back": "Projects",
+      "sub": "Smart Sales & Stock Management",
+      "mobile_label": "Mobile App",
+      "mobile_desc": "Flutter app for field sales reps — barcode & OCR-powered stock entry, offline sync, sales scoreboard and real-time AWS-backed data.",
+      "admin_label": "Admin Panel",
+      "admin_desc": "Vue 3 dashboard for managers — sales analytics, stock tracking, rep performance, regional reports and commission management.",
+      "tech_label": "Tech Stack",
+      "mobile_features": [
+        { "title": "OCR Stock Entry", "desc": "Google Vision AI reads barcodes and product labels for rapid stock input." },
+        { "title": "Offline Sync", "desc": "Works without internet; data syncs automatically when connection is restored." },
+        { "title": "Sales Scoreboard", "desc": "Real-time ranking of sales reps to drive healthy competition." },
+        { "title": "AWS Integration", "desc": "EC2 & RDS backed infrastructure for fast and reliable data access." },
+        { "title": "Order Management", "desc": "One-tap order creation with stock validation and pharmacy lookup." },
+        { "title": "Performance Stats", "desc": "Personal daily, weekly and monthly sales summaries per rep." }
+      ],
+      "admin_features": [
+        { "title": "Sales Analytics", "desc": "Regional and rep-level sales volume, targets and conversion tracking." },
+        { "title": "Stock Management", "desc": "Real-time inventory levels with low-stock alerts per region." },
+        { "title": "Rep Performance", "desc": "Scoreboard and KPI dashboard for each field representative." },
+        { "title": "Commission Tracking", "desc": "Automatic commission calculation and payment history." },
+        { "title": "Regional Reports", "desc": "Pharmacy-level sales reports filtered by city and district." },
+        { "title": "PostgreSQL Backend", "desc": "Relational data model on AWS RDS for reliable reporting." }
+      ]
+    },
+    "counpaign_detail": {
+      "back": "Projects",
+      "sub": "Smart Loyalty & Campaign Platform",
+      "mobile_label": "Mobile App",
+      "mobile_desc": "Customer app built with Flutter featuring QR wallet, SMS OTP login, push notifications, and personalised campaign feed.",
+      "admin_label": "Admin Panel",
+      "admin_desc": "Business dashboard built with Vue 3 — campaign management, QR generation, real-time analytics, customer segmentation and PDF reporting.",
+      "admin_thumb": "Screen",
+      "tech_label": "Tech Stack",
+      "website_label": "Website",
+      "website_desc": "Visit the live website to explore the platform, see campaign examples and better understand the product firsthand.",
+      "website_cta": "Visit counpaign.com",
+      "mobile_features": [
+        { "title": "QR Wallet", "desc": "Customers redeem points instantly with a single QR scan." },
+        { "title": "SMS OTP Login", "desc": "Passwordless, secure one-time-code authentication flow." },
+        { "title": "Push Notifications", "desc": "Campaign and point alerts via Firebase FCM." },
+        { "title": "Personal Analytics", "desc": "User-specific spending and earning graphs." },
+        { "title": "Campaign Feed", "desc": "Segment-based personalised campaign display." },
+        { "title": "Security", "desc": "JWT + refresh token architecture, rate limiting, helmet." }
+      ],
+      "admin_features": [
+        { "title": "Real-Time Analytics", "desc": "Daily active users, transaction volume and campaign conversion metrics." },
+        { "title": "Campaign Management", "desc": "Segment-based campaign creation, scheduling and targeting." },
+        { "title": "QR Generation", "desc": "Dynamic per-business QR code generation and management." },
+        { "title": "Customer Segmentation", "desc": "Automated customer grouping via RFM analysis." },
+        { "title": "PDF Reporting", "desc": "Weekly/monthly automated business reports." },
+        { "title": "Notification Centre", "desc": "Bulk and individual push notification broadcast panel." }
+      ]
     },
     "havelsan": {
       "summary": "Took part in enterprise software development processes. Contributed to module development using TypeScript; adopted corporate code standards by adapting to team workflows. Worked on real-time systems and test automation environments within the scope of my graduation project ServeR.",

@@ -1,4 +1,7 @@
 {
+  "common": {
+    "view_detail": "Detayı Görüntüle"
+  },
   "nav": {
     "home": "Ana Sayfa",
     "about": "Hakkımda",
@@ -113,7 +116,9 @@
         "SEO odaklı sayfa yapısı ve meta veri yönetimi.",
         "Responsive tasarım ile tüm cihazlarda kusursuz alışveriş deneyimi."
       ],
-      "tech": "Teknik Yığın"
+      "tech": "Teknik Yığın",
+      "site_label": "Canlı Web Sitesi",
+      "site_cta": "Siteyi Ziyaret Et"
     },
     "tiki": {
       "title": "Tiki Taka Toe — Futbol Bilgisiyle 3x3 Strateji",
@@ -319,6 +324,88 @@
     "role": {
       "long_term": "Uzun Dönem Stajyer / Ortak Eğitim Programı",
       "intern": "Stajyer"
+    },
+    "tiki_detail": {
+      "back": "Projeler",
+      "sub": "Çok Oyunculu Mobil Oyun — Futbol Bilgisi × 3×3 Strateji",
+      "screenshots_label": "Ekran Görüntüleri",
+      "screenshots_placeholder": "Ekran görüntüleri yakında eklenecek",
+      "gameplay_label": "Oynanış",
+      "gameplay_desc": "4×4 tahtanın kenarlarında milli takımlar ve kulüpler yer alır. Rakibinden önce merkezdeki 3×3 hücrelere her iki kriteri karşılayan futbolcuyu yaz.",
+      "arch_label": "Mimari",
+      "role_label": "Rolüm",
+      "tech_label": "Teknoloji Yığını",
+      "gameplay_steps": [
+        { "icon": "pi-th-large",     "title": "Tahta Kurulumu",    "desc": "Üst ve sol başlıklarda kulüpler ve milli takımlar yer alır. Merkezdeki 3×3 alan senin savaş alanın." },
+        { "icon": "pi-user",         "title": "Hamle Yap",         "desc": "Satır ve sütun kriterini aynı anda karşılayan bir futbolcunun adını gir." },
+        { "icon": "pi-check-circle", "title": "Sunucu Doğrular",   "desc": "Python backend gerçek zamanlı doğrular. Geçersiz hamleler anında reddedilir." },
+        { "icon": "pi-trophy",       "title": "Tahtayı Kazan",     "desc": "Dikey, yatay veya çapraz üçlü oluştur. Beraberlikte bilgi doğruluğu kazanır." }
+      ],
+      "arch_items": [
+        { "icon": "pi-mobile",    "title": "Flutter İstemci",      "desc": "Tahta durumu, sıra yönetimi ve doğrulama geri bildirimleri." },
+        { "icon": "pi-server",    "title": "Python Backend",       "desc": "Futbolcu–kulüp–milli takım eşleştirme doğrulama motoru." },
+        { "icon": "pi-sort-alt",  "title": "WebSocket Lobi",       "desc": "Oda açma/katılma, gerçek zamanlı eşleşme ve sıra güncellemeleri." },
+        { "icon": "pi-shield",    "title": "Sunucu Taraflı Kurallar", "desc": "Tüm oyun kuralları sunucuda saklanır; hile yapmak imkânsızdır." }
+      ],
+      "role_items": [
+        { "icon": "pi-palette",   "title": "Flutter UI & Oyun Döngüsü", "desc": "Sıra akışı, doğrulama geri bildirimleri ve oyun sonu dahil tüm arayüzü kurguladım." },
+        { "icon": "pi-code",      "title": "Doğrulama Motoru",          "desc": "Futbolcu–kulüp–milli takım kombinasyonlarını kontrol eden Python servisini geliştirdim." },
+        { "icon": "pi-sort-alt",  "title": "Gerçek Zamanlı Senkronizasyon", "desc": "WebSocket oda mimarisi, kenar durumları ve ağ gecikmesi direncini yönettim." }
+      ]
+    },
+    "larosee_detail": {
+      "back": "Projeler",
+      "sub": "Akıllı Satış & Stok Yönetimi",
+      "mobile_label": "Mobil Uygulama",
+      "mobile_desc": "Saha satış temsilcileri için Flutter uygulaması — barkod & OCR ile stok girişi, offline senkronizasyon, satış sıralaması ve AWS destekli gerçek zamanlı veri.",
+      "admin_label": "Admin Panel",
+      "admin_desc": "Yöneticiler için Vue 3 paneli — satış analitiği, stok takibi, temsilci performansı, bölgesel raporlar ve prim yönetimi.",
+      "tech_label": "Teknoloji Yığını",
+      "mobile_features": [
+        { "title": "OCR Stok Girişi", "desc": "Google Vision AI ile barkod ve ürün etiketi okuyarak hızlı stok girişi." },
+        { "title": "Offline Senkronizasyon", "desc": "İnternetsiz çalışır; bağlantı gelince otomatik senkronize olur." },
+        { "title": "Satış Sıralaması", "desc": "Saha temsilcilerinin gerçek zamanlı sıralama tablosu." },
+        { "title": "AWS Entegrasyonu", "desc": "EC2 & RDS altyapısı ile hızlı ve güvenilir veri erişimi." },
+        { "title": "Sipariş Yönetimi", "desc": "Stok doğrulamalı tek dokunuşla sipariş oluşturma ve eczane arama." },
+        { "title": "Performans İstatistikleri", "desc": "Temsilci başına günlük, haftalık ve aylık satış özetleri." }
+      ],
+      "admin_features": [
+        { "title": "Satış Analitiği", "desc": "Bölge ve temsilci bazlı satış hacmi, hedef ve dönüşüm takibi." },
+        { "title": "Stok Yönetimi", "desc": "Bölge başına gerçek zamanlı envanter seviyeleri ve düşük stok uyarıları." },
+        { "title": "Temsilci Performansı", "desc": "Her saha temsilcisi için sıralama ve KPI paneli." },
+        { "title": "Prim Takibi", "desc": "Otomatik prim hesaplama ve ödeme geçmişi." },
+        { "title": "Bölgesel Raporlar", "desc": "Şehir ve ilçeye göre filtrelenmiş eczane bazlı satış raporları." },
+        { "title": "PostgreSQL Backend", "desc": "AWS RDS üzerinde ilişkisel veri modeli ile güvenilir raporlama." }
+      ]
+    },
+    "counpaign_detail": {
+      "back": "Projeler",
+      "sub": "Akıllı Sadakat & Kampanya Platformu",
+      "mobile_label": "Mobil Uygulama",
+      "mobile_desc": "Flutter ile geliştirilmiş; QR cüzdan, SMS OTP giriş, anlık bildirimler ve kişiselleştirilmiş kampanya akışı sunan müşteri uygulaması.",
+      "admin_label": "Admin Panel",
+      "admin_desc": "Vue 3 ile geliştirilmiş; kampanya yönetimi, QR üretimi, anlık analitik, müşteri segmentasyonu ve PDF raporlama içeren işletme paneli.",
+      "admin_thumb": "Ekran",
+      "tech_label": "Teknoloji Yığını",
+      "website_label": "Web Sitesi",
+      "website_desc": "Platformu keşfetmek, kampanya örneklerini görmek ve ürünü daha iyi anlamak için canlı web sitesini ziyaret edebilirsin.",
+      "website_cta": "counpaign.com'u Ziyaret Et",
+      "mobile_features": [
+        { "title": "QR Cüzdan", "desc": "Müşteriler puanlarını tek dokunuşla QR kod ile kullanır." },
+        { "title": "SMS OTP Giriş", "desc": "Parola gerektirmeyen güvenli tek kullanımlık kod akışı." },
+        { "title": "Anlık Bildirim", "desc": "Firebase FCM ile kampanya ve puan bildirimleri." },
+        { "title": "Kişisel Analitik", "desc": "Kullanıcıya özel harcama ve kazanım grafikleri." },
+        { "title": "Kampanya Akışı", "desc": "Segmentlere göre kişiselleştirilmiş kampanya gösterimi." },
+        { "title": "Güvenlik", "desc": "JWT + refresh token, rate limiting, helmet koruması." }
+      ],
+      "admin_features": [
+        { "title": "Gerçek Zamanlı Analitik", "desc": "Günlük aktif kullanıcı, işlem hacmi ve kampanya dönüşüm metrikleri." },
+        { "title": "Kampanya Yönetimi", "desc": "Segment bazlı kampanya oluşturma, zamanlama ve hedefleme." },
+        { "title": "QR Üretimi", "desc": "İşletme başına dinamik QR kod üretimi ve yönetimi." },
+        { "title": "Müşteri Segmentasyon", "desc": "RFM analizi ile otomatik müşteri gruplandırma." },
+        { "title": "PDF Raporlama", "desc": "Haftalık/aylık otomatik işletme raporları." },
+        { "title": "Bildirim Merkezi", "desc": "Toplu ve tekil push bildirim gönderim paneli." }
+      ]
     },
     "havelsan": {
       "summary": "Kurumsal yazılım geliştirme süreçlerinde görev aldım. TypeScript kullanarak modül geliştirmelerine katkı verdim; ekip iş akışlarına uyum sağlayarak kurumsal kod standartlarını benimsedim. Bitirme projem ServeR kapsamında gerçek zamanlı sistemler ve test otomasyon ortamları üzerinde çalıştım.",

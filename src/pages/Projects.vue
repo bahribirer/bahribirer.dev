@@ -184,6 +184,14 @@
             <div class="tech-item ai"><i class="pi pi-eye"></i> Google Vision AI</div>
           </div>
         </div>
+
+        <div class="detail-btn-row">
+          <router-link to="/projects/larosee" class="detail-btn larosee-btn">
+            <i class="pi pi-images"></i>
+            {{ t('common.view_detail') }}
+            <i class="pi pi-arrow-right"></i>
+          </router-link>
+        </div>
       </div>
     </section>
 
@@ -232,6 +240,17 @@
             <div class="tech-item iyzico"><i class="pi pi-credit-card"></i> Iyzico API</div>
           </div>
         </div>
+
+        <a href="https://larosee.com.tr" target="_blank" rel="noopener" class="site-link-row">
+          <div class="site-link-left">
+            <span class="live-dot"></span>
+            <span class="site-link-url">larosee.com.tr</span>
+          </div>
+          <span class="site-link-cta">
+            {{ t('projects.larosee_shop.site_cta') }}
+            <i class="pi pi-arrow-up-right"></i>
+          </span>
+        </a>
       </div>
     </section>
 
@@ -291,6 +310,14 @@
             <div class="tech-item socket"><i class="pi pi-sort-alt"></i> WebSocket</div>
             <div class="tech-item python"><i class="pi pi-server"></i> Python Backend</div>
           </div>
+        </div>
+
+        <div class="detail-btn-row">
+          <router-link to="/projects/tiki" class="detail-btn tiki-btn">
+            <i class="pi pi-images"></i>
+            {{ t('common.view_detail') }}
+            <i class="pi pi-arrow-right"></i>
+          </router-link>
         </div>
       </div>
     </section>
@@ -425,6 +452,14 @@
             <div class="tech-item aws"><i class="pi pi-cloud"></i> AWS EC2</div>
             <div class="tech-item ghactions"><i class="pi pi-github"></i> GitHub Actions</div>
           </div>
+        </div>
+
+        <div class="detail-btn-row">
+          <router-link to="/projects/counpaign" class="detail-btn counpaign-btn">
+            <i class="pi pi-images"></i>
+            {{ t('common.view_detail') }}
+            <i class="pi pi-arrow-right"></i>
+          </router-link>
         </div>
       </div>
     </section>
@@ -745,6 +780,127 @@ const { t, tm, rt } = useI18n()
 .cf { --item-color: #f48120; }
 .firebase { --item-color: #ffca28; }
 .iyzico { --item-color: #007bff; }
+
+/* Site Link Row */
+.site-link-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.75rem;
+  padding: 0.9rem 1.25rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+  text-decoration: none;
+  transition: all 0.22s;
+  cursor: pointer;
+}
+.site-link-row:hover {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+.site-link-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.live-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34,197,94,0.5);
+  animation: pulse-dot 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes pulse-dot {
+  0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+  60%  { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+}
+
+.site-link-url {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-color);
+  font-family: monospace;
+  letter-spacing: 0.2px;
+}
+
+.site-link-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  transition: gap 0.2s;
+}
+.site-link-row:hover .site-link-cta {
+  gap: 0.65rem;
+}
+
+/* Detail Button */
+.detail-btn-row {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--surface-border);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.detail-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  letter-spacing: 0.2px;
+}
+
+.counpaign-btn {
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  color: white;
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.35);
+}
+.counpaign-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.5);
+}
+
+.tiki-btn {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.35);
+}
+.tiki-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.5);
+}
+
+.larosee-btn {
+  background: linear-gradient(135deg, #f43f5e, #be123c);
+  color: white;
+  box-shadow: 0 6px 20px rgba(244, 63, 94, 0.35);
+}
+.larosee-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(244, 63, 94, 0.5);
+}
+
+.detail-btn .pi-arrow-right {
+  transition: transform 0.2s;
+}
+.detail-btn:hover .pi-arrow-right {
+  transform: translateX(3px);
+}
 
 /* Dark Mode Adjustments */
 @media (prefers-color-scheme: dark) {
